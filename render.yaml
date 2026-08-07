@@ -1,0 +1,16 @@
+# Render service definition for Wowbite live server
+# Use this file to create a Render service by importing the repo or adding as IaC.
+# Note: You can edit the service name, plan, and environment as needed.
+services:
+  - type: web
+    name: wowbite-live-server
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: "cd server && npm install"
+    startCommand: "cd server && npm start"
+    repo: https://github.com/Hyperinversionltd/wowbite-official
+    branch: main
+    envVars:
+      - key: POLL_INTERVAL_SECONDS
+        value: "60"
