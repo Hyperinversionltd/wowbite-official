@@ -3,95 +3,6 @@
    Organized JS for clean, maintainable logic
    ============================================ */
 
-// ========== Cookie Notice ==========
-/**
- * Close the cookie notice popup
- */
-function closeCookie() {
-  document.getElementById('cookieNotice').classList.add('popup-hide');
-  localStorage.setItem('cookieAccepted', 'true');
-}
-
-// Check if cookie was already accepted on load
-window.addEventListener('load', () => {
-  if (localStorage.getItem('cookieAccepted')) {
-    document.getElementById('cookieNotice').classList.add('popup-hide');
-  }
-});
-
-// ========== Font Sizing ==========
-/**
- * Adjust font size globally
- * @param {string} direction - '+' to increase, '-' to decrease
- */
-function fontS(direction) {
-  let size = parseInt(document.body.style.fontSize || 16);
-
-  if (direction === '+' && size < 20) size++;
-  if (direction === '-' && size > 12) size--;
-
-  document.body.style.fontSize = size + 'px';
-}
-
-// ========== Clock & Time Display ==========
-/**
- * Update the live clock in the header
- */
-function updateClock() {
-  const now = new Date();
-  const timeString = now.toLocaleTimeString('en-GB', { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit' 
-  });
-  const dateString = now.toLocaleDateString('en-GB', { 
-    weekday: 'short', 
-    day: 'numeric', 
-    month: 'short' 
-  });
-
-  const clockElement = document.getElementById('liveClock');
-  const footerElement = document.getElementById('footerTime');
-  
-  if (clockElement) clockElement.textContent = `🕐 ${timeString} | ${dateString}`;
-  if (footerElement) footerElement.textContent = timeString;
-}
-
-// Initialize clock and update every second
-updateClock();
-setInterval(updateClock, 1000);
-
-// ========== Favorites List ==========
-let savedList = [];
-
-/**
- * Toggle and display the favorites list
- */
-function toggleFavList() {
-  const box = document.querySelector('.fav-area');
-
-  if (savedList.length) {
-    box.innerHTML = savedList
-      .map((it, i) => `<div class="item">${i + 1}. ${it}</div>`)
-      .join('');
-  } else {
-    box.innerHTML = '<p>No saved items yet. Click on stories to save them!</p>';
-  }
-}
-
-/**
- * Add item to favorites
- * @param {string} item - The item to add
- */
-function addToFav(item) {
-  if (!savedList.includes(item)) {
-    savedList.push(item);
-    alert('✅ Saved to your list!');
-  }
-}
-
-// ========== LIVE FEEDS SYSTEM ==========
-
 // Sample live feed data
 const sampleFeeds = {
   home: [
@@ -134,25 +45,79 @@ const dailyFacts = [
   "🌊 Octopuses can taste with their arms!"
 ];
 
-// Initialize feeds on page load
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(initializeFeeds, 500);
-});
-
-// Initialize all feeds
-function initializeFeeds() {
-  try {
-    populateFeed('homeFeeds', sampleFeeds.home);
-    populateFeed('newsFeed', sampleFeeds.news);
-    populateFeed('trendingFeed', sampleFeeds.trending);
-    populateFeed('mysteriesFeed', sampleFeeds.mysteries);
-    loadCommunityFeed();
-  } catch (e) {
-    console.log('Feed initialization running...');
+// ========== Cookie Notice ==========
+function closeCookie() {
+  const cookieNotice = document.getElementById('cookieNotice');
+  if (cookieNotice) {
+    cookieNotice.classList.add('popup-hide');
+    localStorage.setItem('cookieAccepted', 'true');
   }
 }
 
-// Populate feed with items
+// Check if cookie was already accepted on load
+function checkCookie() {
+  if (localStorage.getItem('cookieAccepted')) {
+    const cookieNotice = document.getElementById('cookieNotice');
+    if (cookieNotice) {
+      cookieNotice.classList.add('popup-hide');
+    }
+  }
+}
+
+// ========== Font Sizing ==========
+function fontS(direction) {
+  let size = parseInt(document.body.style.fontSize || 16);
+  if (direction === '+' && size < 20) size++;
+  if (direction === '-' && size > 12) size--;
+  document.body.style.fontSize = size + 'px';
+}
+
+// ========== Clock & Time Display ==========
+function updateClock() {
+  const now = new Date();
+  const timeString = now.toLocaleTimeString('en-GB', { 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit' 
+  });
+  const dateString = now.toLocaleDateString('en-GB', { 
+    weekday: 'short', 
+    day: 'numeric', 
+    month: 'short' 
+  });
+
+  const clockElement = document.getElementById('liveClock');
+  const footerElement = document.getElementById('footerTime');
+  
+  if (clockElement) clockElement.textContent = `🕐 ${timeString} | ${dateString}`;
+  if (footerElement) footerElement.textContent = timeString;
+}
+
+// ========== Favorites List ==========
+let savedList = [];
+
+function toggleFavList() {
+  const box = document.querySelector('.fav-area');
+  if (!box) return;
+
+  if (savedList.length) {
+    box.innerHTML = savedList
+      .map((it, i) => `<div class="item">${i + 1}. ${it}</div>`)
+      .join('');
+  } else {
+    box.innerHTML = '<p>No saved items yet. Click on stories to save them!</p>';
+  }
+}
+
+function addToFav(item) {
+  if (!savedList.includes(item)) {
+    savedList.push(item);
+    alert('✅ Saved to your list!');
+  }
+}
+
+// ========== LIVE FEEDS SYSTEM ==========
+
 function populateFeed(elementId, feedData) {
   const feedElement = document.getElementById(elementId);
   if (!feedElement) return;
@@ -170,7 +135,14 @@ function populateFeed(elementId, feedData) {
   });
 }
 
-// Refresh news feed based on category
+function initializeFeeds() {
+  populateFeed('homeFeeds', sampleFeeds.home);
+  populateFeed('newsFeed', sampleFeeds.news);
+  populateFeed('trendingFeed', sampleFeeds.trending);
+  populateFeed('mysteriesFeed', sampleFeeds.mysteries);
+  loadCommunityFeed();
+}
+
 function refreshNews() {
   const category = document.getElementById('newsCategory') ? document.getElementById('newsCategory').value : 'general';
   const feedElement = document.getElementById('newsFeed');
@@ -184,7 +156,6 @@ function refreshNews() {
   }
 }
 
-// Get random daily fact
 function getRandomFact() {
   const randomIndex = Math.floor(Math.random() * dailyFacts.length);
   const factFeed = document.getElementById('factFeed');
@@ -201,7 +172,6 @@ function getRandomFact() {
   }
 }
 
-// Security: Escape HTML to prevent XSS
 function escapeHtml(text) {
   const map = {
     '&': '&amp;',
@@ -213,7 +183,6 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, m => map[m]);
 }
 
-// Community Comment System
 function postComment() {
   const input = document.getElementById('commentInput');
   if (!input) return;
@@ -236,11 +205,9 @@ function postComment() {
     <div class="comment-time">just now</div>
   `;
   
-  // Insert at top
   commentFeed.insertBefore(newComment, commentFeed.firstChild);
   input.value = '';
   
-  // Add sample reply
   setTimeout(() => {
     addSampleReply(commentFeed);
   }, 2000);
@@ -282,4 +249,20 @@ function addSampleReply(container) {
     <div class="comment-time">a few seconds ago</div>
   `;
   container.insertBefore(replyDiv, container.firstChild);
+}
+
+// ========== INITIALIZATION ==========
+// Run everything when DOM is ready
+function startApp() {
+  checkCookie();
+  updateClock();
+  setInterval(updateClock, 1000);
+  initializeFeeds();
+}
+
+// Use multiple methods to ensure execution
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp);
+} else {
+  startApp();
 }
