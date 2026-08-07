@@ -1,0 +1,13 @@
+# Exclude server code, node_modules, and other non-static content from Pages artifact
+# This ensures the uploaded artifact is small and only contains the static site files.
+server/
+server/**
+node_modules/
+.git/
+.github/
+.env
+.env.*
+*.log
+render.yaml
+vercel.json
+.docs/
