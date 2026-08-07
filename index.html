@@ -1,83 +1,135 @@
-/* ============================================
-   WOWBITE JAVASCRIPT
-   Organized JS for clean, maintainable logic
-   ============================================ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WowBite | Hyperinversion LTD</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-// ========== Cookie Notice ==========
-/**
- * Close the cookie notice popup
- */
-function closeCookie() {
-  document.getElementById('cookieNotice').classList.add('popup-hide');
-}
+  <!-- Cookie Notice Popup -->
+  <div id="cookieNotice" class="popup">
+    <div class="popup-content">
+      <h2 style="color: gold;">🍪 Privacy & Cookie Notice</h2>
+      <p>Owned & operated by <strong>Hyperinversion LTD</strong> — Daily news hub, GDPR compliant & ready for Google AdSense.</p>
+      <br><button class="btn" onclick="closeCookie()">✅ I Understand</button>
+    </div>
+  </div>
 
-// ========== Font Sizing ==========
-/**
- * Adjust font size globally
- * @param {string} direction - '+' to increase, '-' to decrease
- */
-function fontS(direction) {
-  let size = parseInt(document.body.style.fontSize || 16);
+  <!-- Tab Selection (Hidden Radio Inputs) -->
+  <input type="radio" name="tabset" id="h" checked>
+  <input type="radio" name="tabset" id="n">
+  <input type="radio" name="tabset" id="t">
+  <input type="radio" name="tabset" id="m">
+  <input type="radio" name="tabset" id="d">
+  <input type="radio" name="tabset" id="c">
+  <input type="radio" name="tabset" id="l">
+  <input type="radio" name="tabset" id="a">
 
-  if (direction === '+' && size < 20) size++;
-  if (direction === '-' && size > 12) size--;
+  <!-- Header -->
+  <header>
+    <h1>✨ WOWBITE ✨</h1>
+    <div class="info-bar" id="liveClock"></div>
+    <div>
+      <button class="btn" onclick="fontS('+')">A+</button>
+      <button class="btn" onclick="fontS('-')">A-</button>
+      <span class="star-btn" onclick="toggleFavList()">☆ Save List</span>
+    </div>
+  </header>
 
-  document.body.style.fontSize = size + 'px';
-}
+  <!-- Navigation Tabs -->
+  <div class="tab-wrap">
+    <label class="tab th" for="h">🏠 Home</label>
+    <label class="tab tn" for="n">📰 News</label>
+    <label class="tab tt" for="t">💋 Trending</label>
+    <label class="tab tm" for="m">👁️ Mysteries</label>
+    <label class="tab td" for="d">✨ Daily</label>
+    <label class="tab tc" for="c">💬 Community</label>
+    <label class="tab tl" for="l">⚖️ Legal</label>
+    <label class="tab ta" for="a">ℹ️ About</label>
+  </div>
 
-// ========== Clock & Time Display ==========
-/**
- * Update the live clock in the header
- */
-function updateClock() {
-  const now = new Date();
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  const formattedTime = now.toLocaleTimeString();
-  const dayName = days[now.getDay()];
+  <!-- Main Content -->
+  <main>
+    <!-- Home Page -->
+    <section class="page ph">
+      <div class="box">
+        <h2>🌟 Top Stories Today</h2>
+        <div class="item"><strong>🔥 Manchester:</strong> Local news, events & community updates</div>
+        <div class="item"><strong>⚽ Sport:</strong> Man Utd & Man City latest match & transfer news</div>
+        <div class="item"><strong>📱 Viral:</strong> Most shared interesting stories & trending topics</div>
+      </div>
+      <div class="ad">📢 GOOGLE ADSENSE ADVERTISING AREA<br>Ready for your publisher code</div>
+      <div class="fav-area"><p>Tap ☆ Save List to view saved favourites</p></div>
+    </section>
 
-  document.getElementById(
-    'liveClock'
-  ).innerText = `${dayName} | ${formattedTime}`;
-}
+    <!-- News Page -->
+    <section class="page pn">
+      <div class="box">
+        <h2>📰 UK & Local News</h2>
+        <div class="item">Greater Manchester / North West updates</div>
+        <div class="item">UK National & World News</div>
+        <div class="item">Breaking news & developing stories</div>
+      </div>
+    </section>
 
-// Initialize clock and update every second
-updateClock();
-setInterval(updateClock, 1000);
+    <!-- Trending Page -->
+    <section class="page pt">
+      <div class="box">
+        <h2>💋 Entertainment Buzz</h2>
+        <div class="item">Celebrity, viral & trending updates</div>
+      </div>
+    </section>
 
-// ========== Favorites List ==========
-let savedList = [];
+    <!-- Mysteries Page -->
+    <section class="page pm">
+      <div class="box">
+        <h2>👁️ Mysteries & Curious</h2>
+        <div class="item">Unsolved cases, strange facts & history mysteries</div>
+      </div>
+    </section>
 
-/**
- * Toggle and display the favorites list
- */
-function toggleFavList() {
-  const box = document.querySelector('.fav-area');
+    <!-- Daily Facts Page -->
+    <section class="page pd">
+      <div class="box">
+        <h2>✨ Daily Facts</h2>
+        <div class="item"><strong>🧠 Fact:</strong> Honey never spoils — lasts thousands of years!</div>
+      </div>
+    </section>
 
-  if (savedList.length) {
-    box.innerHTML = savedList
-      .map((it, i) => `<div class="item">${i + 1}. ${it}</div>`)
-      .join('');
-  } else {
-    box.innerHTML = '<p>No saved items yet. Click on stories to save them!</p>';
-  }
-}
+    <!-- Community Page -->
+    <section class="page pc">
+      <div class="box">
+        <h2>💬 Community Chat</h2>
+        <div class="item">Discuss topics respectfully, share opinions</div>
+      </div>
+    </section>
 
-/**
- * Add item to favorites
- * @param {string} item - The item to add
- */
-function addToFav(item) {
-  if (!savedList.includes(item)) {
-    savedList.push(item);
-    alert('✅ Saved to your list!');
-  }
-}
+    <!-- Legal Page -->
+    <section class="page pl">
+      <div class="box">
+        <h2>⚖️ Legal & Compliance</h2>
+        <div class="item">🔐 Privacy Policy | 🍪 Cookie Policy | 📑 Terms of Use — GDPR & AdSense compliant</div>
+      </div>
+    </section>
 
+    <!-- About Page -->
+    <section class="page pa">
+      <div class="box">
+        <h2>ℹ️ About WowBite</h2>
+        <p><strong>Hyperinversion LTD — Bringing your world to you</strong></p>
+        <p>Daily news hub, mobile friendly, built ready for Google AdSense integration.</p>
+        <div class="item">Contact & Partnership Inquiries</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>WowBite © 2026 | Hyperinversion LTD — Bringing your world to you</footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
