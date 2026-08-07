@@ -1,0 +1,36 @@
+  - name: Create PR if none exists
+    uses: actions/github-script@v6
+    with:
+      script: |
+        const owner = context.repo.owner;
+        const repo = context.repo.repo;
+        const head = 'pages/fix-deploy';
+        const base = 'main';
+
+        // Look for an open PR from owner:pages/fix-deploy
+        const { data: prs } = await github.rest.pulls.list({
+          owner,
+          repo,
+          head: `${owner}:${head}`,
+          state: 'open',
+          per_page: 5
+        });
+
+        if (prs.length > 0) {
+          console.log(`Open PR already exists: ${prs[0].html_url}`);
+          return;
+        }
+
+        const title = process.env.PR_TITLE || 'Fix GitHub Pages deploy';
+        const body = process.env.PR_BODY || 'Add Configure Pages step and .pagesignore to ensure only static files are uploaded for GitHub Pages.';
+
+        const { data: pr } = await github.rest.pulls.create({
+          owner,
+          repo,
+          head,
+          base,
+          title,
+          body
+        });
+
+        console.log(`Created PR: ${pr.html_url}`);
