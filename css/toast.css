@@ -1,0 +1,14 @@
+/* Toast CSS moved to existing css directory: import this file from index.html */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  z-index: 10000;
+  display: none;
+}
+.toast.show { display: block; opacity: 0.97; }

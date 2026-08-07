@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WowBite | Hyperinversion LTD</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/toast.css">
 </head>
 <body>
 
   <!-- Cookie Notice Popup -->
-  <div id="cookieNotice" class="popup">
+  <div id="cookieNotice" class="popup" role="dialog" aria-modal="true">
     <div class="popup-content">
       <h2 style="color: gold;">🍪 Privacy & Cookie Notice</h2>
       <p>Owned & operated by <strong>Hyperinversion LTD</strong> — Daily news hub, GDPR compliant & ready for Google AdSense.</p>
@@ -32,9 +33,9 @@
     <h1>✨ WOWBITE ✨</h1>
     <div class="info-bar" id="liveClock"></div>
     <div>
-      <button class="btn" onclick="fontS('+')">A+</button>
-      <button class="btn" onclick="fontS('-')">A-</button>
-      <span class="star-btn" onclick="toggleFavList()">☆ Save List</span>
+      <button class="btn">A+</button>
+      <button class="btn">A-</button>
+      <span class="star-btn" role="button" tabindex="0">☆ Save List</span>
     </div>
   </header>
 
