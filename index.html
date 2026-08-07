@@ -8,16 +8,16 @@
 </head>
 <body>
 
-  <!-- Cookie Notice Popup -->
+  <!-- Cookie -->
   <div id="cookieNotice" class="popup">
     <div class="popup-content">
-      <h2 style="color: gold;">🍪 Privacy & Cookie Notice</h2>
-      <p>Owned & operated by <strong>Hyperinversion LTD</strong> — Daily news hub, GDPR compliant & ready for Google AdSense.</p>
-      <br><button class="btn" onclick="closeCookie()">✅ I Understand</button>
+      <h2 style="color: gold;">🍪 Cookie Notice</h2>
+      <p>Owned by <strong>Hyperinversion LTD</strong> — GDPR compliant & Google AdSense ready</p>
+      <button class="btn" onclick="closeCookie()">✅ I Understand</button>
     </div>
   </div>
 
-  <!-- Tab Selection (Hidden Radio Inputs) -->
+  <!-- Tabs -->
   <input type="radio" name="tabset" id="h" checked>
   <input type="radio" name="tabset" id="n">
   <input type="radio" name="tabset" id="t">
@@ -32,16 +32,16 @@
     <h1>✨ WOWBITE ✨</h1>
     <div class="info-bar">
       <span id="liveClock">🕐 Loading...</span>
-      <span class="live-indicator">🔴 LIVE</span>
+      <span style="animation: pulse 1.5s infinite; color: #ff4444; font-weight: bold;">🔴 LIVE</span>
     </div>
     <div>
       <button class="btn" onclick="fontS('+')">A+</button>
       <button class="btn" onclick="fontS('-')">A-</button>
-      <span class="star-btn" onclick="toggleFavList()">☆ Save List</span>
+      <span class="star-btn" onclick="toggleFavList()">☆ Save</span>
     </div>
   </header>
 
-  <!-- Navigation Tabs -->
+  <!-- Navigation -->
   <div class="tab-wrap">
     <label class="tab th" for="h">🏠 Home</label>
     <label class="tab tn" for="n">📰 News</label>
@@ -53,122 +53,93 @@
     <label class="tab ta" for="a">ℹ️ About</label>
   </div>
 
-  <!-- Main Content -->
+  <!-- Content -->
   <main>
-    <!-- Home Page -->
+    <!-- Home -->
     <section class="page ph">
       <div class="box">
-        <h2>🌟 Top Stories Today</h2>
-        <div id="homeFeeds" class="live-feed">
-          <div class="item"><strong>🔥 Manchester:</strong> Local news, events & community updates</div>
-          <div class="item"><strong>⚽ Sport:</strong> Man Utd & Man City latest match & transfer news</div>
-          <div class="item"><strong>📱 Viral:</strong> Most shared interesting stories & trending topics</div>
-        </div>
+        <h2>🌟 Top Stories</h2>
+        <div id="homeFeeds" class="live-feed"></div>
       </div>
-      <div class="ad">📢 GOOGLE ADSENSE ADVERTISING AREA<br>Ready for your publisher code</div>
-      <div class="fav-area"><p>Tap ☆ Save List to view saved favourites</p></div>
+      <div class="ad">📢 GOOGLE ADSENSE AREA</div>
+      <div class="fav-area"><p>Tap ☆ to save favorites</p></div>
     </section>
 
-    <!-- News Page -->
+    <!-- News -->
     <section class="page pn">
       <div class="box">
-        <h2>📰 Live News Feed</h2>
+        <h2>📰 News Feed</h2>
         <div class="feed-controls">
           <button class="btn-small" onclick="refreshNews()">🔄 Refresh</button>
-          <label>Category: 
-            <select id="newsCategory" onchange="refreshNews()">
-              <option value="general">General News</option>
-              <option value="business">Business</option>
-              <option value="sports">Sports</option>
-              <option value="entertainment">Entertainment</option>
-              <option value="health">Health</option>
-              <option value="technology">Technology</option>
-            </select>
-          </label>
         </div>
-        <div id="newsFeed" class="live-feed">
-          <div class="item">Greater Manchester / North West updates</div>
-          <div class="item">UK National & World News</div>
-          <div class="item">Breaking news & developing stories</div>
-        </div>
+        <div id="newsFeed" class="live-feed"></div>
       </div>
     </section>
 
-    <!-- Trending Page -->
+    <!-- Trending -->
     <section class="page pt">
       <div class="box">
-        <h2>💋 Entertainment & Trending</h2>
-        <div id="trendingFeed" class="live-feed">
-          <div class="item">Celebrity, viral & trending updates</div>
-        </div>
+        <h2>💋 Trending</h2>
+        <div id="trendingFeed" class="live-feed"></div>
       </div>
     </section>
 
-    <!-- Mysteries Page -->
+    <!-- Mysteries -->
     <section class="page pm">
       <div class="box">
-        <h2>👁️ Mysteries & Curious</h2>
-        <div id="mysteriesFeed" class="live-feed">
-          <div class="item">🔮 Unsolved cases, strange facts & history mysteries</div>
-        </div>
+        <h2>👁️ Mysteries</h2>
+        <div id="mysteriesFeed" class="live-feed"></div>
       </div>
     </section>
 
-    <!-- Daily Facts Page -->
+    <!-- Daily -->
     <section class="page pd">
       <div class="box">
         <h2>✨ Daily Facts</h2>
-        <button class="btn-small" onclick="getRandomFact()">Get New Fact 🎲</button>
-        <div id="factFeed" class="live-feed">
-          <div class="item"><strong>🧠 Fact:</strong> Honey never spoils — lasts thousands of years!</div>
-        </div>
+        <button class="btn-small" onclick="getRandomFact()">Get Fact 🎲</button>
+        <div id="factFeed" class="live-feed"><div class="item">🧠 Honey never spoils!</div></div>
       </div>
     </section>
 
-    <!-- Community Page -->
+    <!-- Community -->
     <section class="page pc">
       <div class="box">
-        <h2>💬 Live Community Feed</h2>
+        <h2>💬 Community</h2>
         <div class="comment-box">
           <input type="text" id="commentInput" placeholder="Share your thoughts...">
           <button class="btn" onclick="postComment()">Send 💬</button>
         </div>
-        <div id="communityFeed" class="live-feed">
-          <div class="item">💬 Community discussions will appear here. Be respectful!</div>
-        </div>
+        <div id="communityFeed" class="live-feed"></div>
       </div>
     </section>
 
-    <!-- Legal Page -->
+    <!-- Legal -->
     <section class="page pl">
       <div class="box">
-        <h2>⚖️ Legal & Compliance</h2>
-        <div class="item">🔐 <strong>Privacy Policy</strong> - Your data is protected under GDPR regulations</div>
-        <div class="item">🍪 <strong>Cookie Policy</strong> - We use cookies for analytics and user experience</div>
-        <div class="item">📑 <strong>Terms of Use</strong> - By using WowBite, you agree to our terms</div>
-        <div class="item">📊 <strong>AdSense Compliance</strong> - All content meets Google AdSense standards</div>
+        <h2>⚖️ Legal</h2>
+        <div class="item">🔐 Privacy Policy - GDPR compliant</div>
+        <div class="item">🍪 Cookie Policy - Transparent tracking</div>
+        <div class="item">📑 Terms of Use - Fair and clear</div>
+        <div class="item">📊 AdSense Compliant - Quality content</div>
       </div>
     </section>
 
-    <!-- About Page -->
+    <!-- About -->
     <section class="page pa">
       <div class="box">
         <h2>ℹ️ About WowBite</h2>
         <p><strong>Hyperinversion LTD — Bringing your world to you</strong></p>
-        <p>🌍 Your daily news hub with live feeds, community engagement, and real-time updates.</p>
-        <p>📱 Mobile-friendly, fast-loading, built ready for Google AdSense integration.</p>
-        <div class="item">📧 <strong>Contact:</strong> contact@wowbite.com</div>
-        <div class="item">🤝 <strong>Partnerships:</strong> partnerships@wowbite.com</div>
-        <div class="item">🔗 <strong>Follow us:</strong> Twitter • Facebook • Instagram</div>
+        <p>Daily news hub with live feeds, community, and real-time updates.</p>
+        <p>Mobile-friendly, fast, ready for Google AdSense.</p>
+        <div class="item">📧 Contact: contact@wowbite.com</div>
+        <div class="item">🤝 Partnerships: partnerships@wowbite.com</div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>WowBite © 2026 | Hyperinversion LTD — Bringing your world to you | Last updated: <span id="footerTime">--:--:--</span></footer>
+  <footer>WowBite © 2026 | Last: <span id="footerTime">--:--:--</span></footer>
 
-  <!-- Scripts -->
   <script src="js/script.js"></script>
-
 </body>
 </html>
