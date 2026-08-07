@@ -1,0 +1,260 @@
+/* ============================================
+   WOWBITE STYLESHEET
+   Organized CSS for clean, maintainable styling
+   ============================================ */
+
+/* Reset & Global Variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+:root {
+  --gold: #ffcc00;
+  --darkgold: #b8860b;
+  --card: rgba(20, 20, 30, 0.85);
+  --text: white;
+  --accent-blue: #0099ff;
+}
+
+/* Body & Background */
+body {
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.7);
+  background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1200&q=85');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Header Styling */
+header {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid var(--gold);
+}
+
+h1 {
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.info-bar {
+  font-size: 13px;
+  color: #ccc;
+  margin: 6px 0;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  background: var(--gold);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--darkgold);
+  transform: scale(1.05);
+}
+
+/* Tab Navigation */
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #111;
+  padding: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.tab {
+  padding: 8px 10px;
+  margin: 2px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 204, 0, 0.3);
+  color: var(--gold);
+}
+
+/* Hidden Tab Inputs */
+input {
+  display: none;
+}
+
+/* Tab Active States */
+#h:checked ~ .tab-wrap .th,
+#n:checked ~ .tab-wrap .tn,
+#t:checked ~ .tab-wrap .tt,
+#m:checked ~ .tab-wrap .tm,
+#d:checked ~ .tab-wrap .td,
+#c:checked ~ .tab-wrap .tc,
+#l:checked ~ .tab-wrap .tl,
+#a:checked ~ .tab-wrap .ta {
+  background: var(--gold);
+  color: black;
+  font-weight: bold;
+}
+
+/* Page Content */
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+.page {
+  display: none;
+  padding: 15px;
+  animation: fade 0.4s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Show Active Page */
+#h:checked ~ main .ph,
+#n:checked ~ main .pn,
+#t:checked ~ main .pt,
+#m:checked ~ main .pm,
+#d:checked ~ main .pd,
+#c:checked ~ main .pc,
+#l:checked ~ main .pl,
+#a:checked ~ main .pa {
+  display: block;
+}
+
+/* Content Boxes */
+.box {
+  background: var(--card);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.item {
+  padding: 10px;
+  margin: 6px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+/* Advertisement Area */
+.ad {
+  border: 2px dashed #777;
+  padding: 20px;
+  text-align: center;
+  color: #aaa;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+/* Popup Styling */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popup-hide {
+  display: none !important;
+}
+
+.popup-content {
+  background: var(--card);
+  border: 2px solid gold;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Favorites Area */
+.fav-area {
+  margin-top: 12px;
+  padding: 10px;
+  background: rgba(40, 40, 60, 0.6);
+  border-radius: 8px;
+}
+
+.star-btn {
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.star-btn:hover {
+  color: var(--gold);
+  transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  color: #ccc;
+  border-top: 1px solid #333;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  .tab-wrap {
+    padding: 4px;
+  }
+
+  .tab {
+    padding: 6px 8px;
+    font-size: 12px;
+    margin: 1px;
+  }
+
+  .box {
+    padding: 12px;
+  }
+
+  main {
+    max-width: 100%;
+  }
+}
