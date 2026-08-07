@@ -131,8 +131,13 @@ h1 {
 }
 
 /* Hidden Tab Inputs */
-input {
+input[type="radio"] {
   display: none;
+}
+
+input[type="text"],
+select {
+  display: block;
 }
 
 /* Tab Active States */
@@ -268,6 +273,20 @@ h2 {
   background: rgba(20, 20, 30, 0.7);
   color: white;
   cursor: pointer;
+  font-size: 13px;
+}
+
+.feed-controls select option {
+  background: rgba(20, 20, 30, 0.9);
+  color: white;
+}
+
+.feed-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
+  font-size: 13px;
 }
 
 /* Community Comment Box */
@@ -278,7 +297,6 @@ h2 {
 }
 
 .comment-box input {
-  display: block;
   flex: 1;
   padding: 10px;
   border-radius: 5px;
@@ -309,6 +327,7 @@ h2 {
 .comment-text {
   color: white;
   margin: 5px 0;
+  font-size: 13px;
 }
 
 .comment-time {
@@ -415,7 +434,8 @@ footer {
     flex-direction: column;
   }
 
-  .feed-controls select {
+  .feed-controls select,
+  .feed-controls label {
     width: 100%;
   }
 
