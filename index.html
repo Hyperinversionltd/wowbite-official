@@ -4,14 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>WowBite | Hyperinversion LTD</title>
-<meta name="description" content="WowBite – Manchester & UK news, gossip, mysteries, daily facts, community hub.">
+<meta name="description" content="WowBite – London & UK factual hub: News, AI technology explained, verified mysteries, science facts, celebrity info & community updates.">
 <style>
 * {margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-:root {--gold:#ffcc00;--dark:#0f0f1a;--light:#f0f0f5;--red:#e63946;}
-body {background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.78)),url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;color:var(--light);line-height:1.6;min-height:100vh;}
+:root {--gold:#ffcc00;--dark:#0f0f1a;--light:#f0f0f5;--red:#e63946;--techblue:#66b2ff;}
+body {background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.78)),url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;color:var(--light);line-height:1.7;min-height:100vh;}
 header {background:rgba(0,0,0,0.88);padding:1rem;text-align:center;border-bottom:3px solid var(--gold);}
 h1 {color:var(--gold);font-size:1.7rem;}
 .time-display {font-size:0.9rem;color:#ddd;}
@@ -24,9 +21,12 @@ main {padding:1rem;max-width:1200px;margin:0 auto;}
 .page.active {display:block;animation:fade 0.3s;}
 @keyframes fade {from{opacity:0;}to{opacity:1;}}
 .card {background:rgba(18,18,30,0.85);border-radius:8px;padding:1.2rem;margin:1rem 0;border-left:4px solid var(--red);}
-h2 {color:var(--gold);margin-bottom:0.7rem;font-size:1.3rem;}
-ul {padding-left:1.2rem;margin:0.6rem 0;}
-li {margin-bottom:0.4rem;}
+.ai-card {border-color:var(--techblue);}
+h2 {color:var(--gold);margin-bottom:0.8rem;font-size:1.3rem;}
+h3 {color:#ffdd66;margin:0.7rem 0 0.4rem;font-size:1.1rem;}
+h4 {color:var(--techblue);margin:0.6rem 0 0.35rem;}
+ul {padding-left:1.4rem;margin:0.7rem 0;}
+li {margin-bottom:0.5rem;}
 .feed-item {border-bottom:1px solid #444;padding:0.5rem 0;}
 .feed-item a {color:#ffdd44;text-decoration:none;}
 #cookie {position:fixed;bottom:0;width:100%;background:#000;padding:1rem;border-top:2px solid var(--gold);z-index:999;}
@@ -41,16 +41,17 @@ button {padding:0.4rem 0.7rem;background:#222;border:1px solid gold;color:gold;b
 
 <header>
   <h1>✨ WOWBITE ✨</h1>
-  <div class="time-display" id="live-time"></div>
+  <div class="time-display" id="live-time">LONDON • Live Clock Loading…</div>
 </header>
 
 <nav>
   <ul class="tabs">
     <li><a href="#home" class="tab-link active">🏠 Home</a></li>
+    <li><a href="#ai" class="tab-link">🤖 AI Tech</a></li>
     <li><a href="#news" class="tab-link">📰 LIVE News</a></li>
-    <li><a href="#trending" class="tab-link">💋 Gossip</a></li>
-    <li><a href="#mysteries" class="tab-link">👁️ Mysteries</a></li>
-    <li><a href="#daily" class="tab-link">✨ Daily</a></li>
+    <li><a href="#trending" class="tab-link">💋 Facts & Gossip</a></li>
+    <li><a href="#mysteries" class="tab-link">👁️ Verified Mysteries</a></li>
+    <li><a href="#daily" class="tab-link">✨ Science & Facts</a></li>
     <li><a href="#community" class="tab-link">💬 Community</a></li>
     <li><a href="#legal" class="tab-link">⚖️ Legal</a></li>
     <li><a href="#about" class="tab-link">ℹ️ About</a></li>
@@ -58,90 +59,137 @@ button {padding:0.4rem 0.7rem;background:#222;border:1px solid gold;color:gold;b
 </nav>
 
 <main>
-<!-- 🏠 HOME - FULL CONTENT -->
+<!-- 🏠 HOME — UPDATED LONDON + MORE DETAILS -->
 <section id="home" class="page active">
   <div class="card">
-    <h2>🔥 Top Trending Now</h2>
-    <p>✅ Manchester United big league victory & fan reaction<br>
-    ✅ Man City latest transfer rumours & targets<br>
-    ✅ Viral local challenges spreading across Greater Manchester<br>
-    ✅ Weekend events, markets & weather outlook<br>
-    ✅ Popular stories everyone is sharing today</p>
-  </div>
-  <div class="card">
-    <h2>📌 What We Cover</h2>
-    <p>Daily Manchester & UK news • Showbiz gossip • Unexplained mysteries • Fun facts • Community updates — fresh content every few hours!</p>
+    <h2>📌 Welcome to WowBite — LONDON, UNITED KINGDOM</h2>
+    <p>Your trusted factual daily information hub serving <strong>London, Greater London & across the whole UK</strong>. We publish verified statistics, recorded history, scientific data, official reports and well‑sourced information only — no unproven rumours or invented content.</p>
+    <h3>✅ Key London Facts</h3>
+    <ul>
+      <li>Capital city of the United Kingdom; population approx 9 million Greater London, one of the world’s largest financial & cultural centres</li>
+      <li>Founded by Romans ~AD43 as Londinium; landmarks: Tower of London, Buckingham Palace, British Museum, London Eye, Canary Wharf tech district</li>
+      <li>Global hub for AI innovation, tech companies, research universities, finance, media, arts & international transport hub (Heathrow/Gatwick)</li>
+      <li>Home to leading AI labs, research institutes, tech startups & UK government digital/AI strategy offices</li>
+    </ul>
+    <h3>🔥 Today’s Coverage Areas</h3>
+    <ul>
+      <li>Latest London news, transport/tube updates, weather & public safety alerts</li>
+      <li>Cutting‑edge Artificial Intelligence advances, UK AI regulation & London tech sector growth</li>
+      <li>National UK developments, science breakthroughs, space & technology updates</li>
+      <li>Entertainment, verified celebrity facts, mysteries, history & educational knowledge</li>
+    </ul>
   </div>
 </section>
 
-<!-- 📰 NEWS - FULL INFO + LIVE LINKS -->
+<!-- 🤖 BRAND NEW DEDICATED AI SECTION — HUGE FACTUAL INFORMATION -->
+<section id="ai" class="page">
+  <div class="card ai-card">
+    <h2>🤖 ARTIFICIAL INTELLIGENCE — COMPLETE FACTUAL GUIDE</h2>
+    <p>Artificial Intelligence = computer systems designed to perform tasks that normally require human intelligence — learning, reasoning, problem‑solving, perception, language understanding & creativity.</p>
+
+    <h3>📜 History & Origins</h3>
+    <ul>
+      <li>Term “Artificial Intelligence” coined 1956 by John McCarthy at Dartmouth College conference, USA</li>
+      <li>Early foundations: Alan Turing (London/UK) — Turing Test 1950, “Can machines think?” — pioneer of computing & machine logic</li>
+      <li>Progress: early logic programs → machine learning (1990s‑2000s) → Deep Learning / Neural Networks (2012 onwards) → Generative AI explosion 2022+</li>
+      <li>London & UK universities (Oxford, Cambridge, Imperial College London) world‑leading in AI research & ethics</li>
+    </ul>
+
+    <h3>🧠 Main Types of AI Explained</h3>
+    <ul>
+      <li><strong>Narrow AI (Weak AI):</strong> Built for one specific task — voice assistants, search engines, image recognition, chatbots, recommendation algorithms — <em>most AI we use today</em></li>
+      <li><strong>General AI (Strong AI):</strong> Hypothetical future AI with ability to understand, learn & apply knowledge across ANY intellectual task like a human — does not yet exist</li>
+      <li><strong>Super AI:</strong> Theoretical intelligence far exceeding human capability in all fields — long‑term research concept only</li>
+      <li><strong>Machine Learning (ML):</strong> AI subset — systems learn patterns & improve automatically from data without exact step‑by‑step programming</li>
+      <li><strong>Deep Learning:</strong> Advanced ML using layered Artificial Neural Networks — powers ChatGPT, image generation, speech translation, self‑driving tech</li>
+    </ul>
+
+    <h3>💡 Real‑World Uses & Benefits</h3>
+    <ul>
+      <li>🏥 Healthcare: faster diagnosis, cancer screening, drug discovery, personalised treatment, medical imaging analysis</li>
+      <li>🏙️ London/Cities: smart traffic control, energy saving, public transport planning, safety monitoring, waste management</li>
+      <li>💼 Business: data analysis, customer support chatbots, fraud detection, stock/market trends, automation</li>
+      <li>🎨 Creative: writing, art/image generation, music, video editing, design & architectural visualisation</li>
+      <li>🌍 Environment: climate modelling, pollution tracking, renewable energy optimisation, wildlife conservation research</li>
+      <li>✈️ Transport: driver assistance, autonomous vehicle development, flight/rail scheduling improvements</li>
+    </ul>
+
+    <h3>⚖️ UK/London Regulation, Ethics & Future</h3>
+    <ul>
+      <li>UK Government AI Action Plan & AI Safety Institute based in London — global leader in safe AI development & risk classification</li>
+      <li>Key concerns: bias/fairness, privacy/data protection, job transformation, deepfake misinformation, transparency & accountability</li>
+      <li>Future directions: better healthcare AI, green energy AI, human‑AI collaboration, improved accessibility tools, education support</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 📰 NEWS — UPDATED LONDON FOCUS -->
 <section id="news" class="page">
   <div class="card">
-    <h2>📰 LIVE UK & Manchester News</h2>
-    <p>Latest reliable updates from BBC News, Sky News & Manchester Evening News — National stories + Greater Manchester, Salford, Oldham, Bolton & surrounding areas.</p>
+    <h2>📰 LIVE LONDON & UK VERIFIED NEWS</h2>
+    <p>Sources: BBC London, Sky News, London.gov.uk, TfL, Met Police, Gov.uk — official facts & reports.</p>
+    <h3>London & Greater London Coverage</h3>
     <ul>
-      <li>🏛️ UK politics & national developments</li>
-      <li>🌤️ Local weather & travel/traffic alerts</li>
-      <li>⚽ Premier League, United, City & local sport results</li>
-      <li>🏙️ Manchester business, events & community projects</li>
+      <li>🚇 Tube, bus, rail & road traffic, delays, closures & major events crowd management</li>
+      <li>🏙️ City developments, new skyscrapers, tech district growth, business & financial updates</li>
+      <li>🌤️ London weather, air quality alerts, public health & safety announcements</li>
+      <li>🎭 Cultural events, royal news, exhibitions, sports & major public gatherings</li>
+    </ul>
+    <h3>National & Tech News</h3>
+    <ul>
+      <li>UK AI policy, new technology laws, London tech sector investment & innovation news</li>
+      <li>National economy, education, science research & space programmes</li>
     </ul>
     <button onclick="loadRSSFeed()">🔄 Refresh Live Headlines</button>
     <div id="live-news-feed">
-      <div class="feed-item"><a href="https://www.bbc.co.uk/news/uk" target="_blank">🔗 BBC UK News – Live coverage</a></div>
-      <div class="feed-item"><a href="https://news.sky.com/uk" target="_blank">🔗 Sky News UK – Live updates</a></div>
-      <div class="feed-item"><a href="https://www.manchestereveningnews.co.uk/" target="_blank">🔗 Manchester Evening News – Local North West</a></div>
+      <div class="feed-item"><a href="https://www.bbc.co.uk/news/england/london" target="_blank">🔗 BBC London News</a></div>
+      <div class="feed-item"><a href="https://news.sky.com/uk" target="_blank">🔗 Sky News UK</a></div>
+      <div class="feed-item"><a href="https://www.london.gov.uk/" target="_blank">🔗 London City Hall Official Updates</a></div>
     </div>
   </div>
 </section>
 
-<!-- 💋 GOSSIP -->
+<!-- 💋 FACTS & GOSSIP -->
 <section id="trending" class="page">
   <div class="card">
-    <h2>💋 Celebrity & Trending Gossip</h2>
-    <p>Everything people are talking about right now!</p>
+    <h2>💋 Celebrity Facts & Verified Public Interest Stories</h2>
+    <p>Confirmed dates, awards, London concerts, film premieres, charity work & public appearances only — speculation clearly marked.</p>
     <ul>
-      <li>⭐ Celebrity news, relationships & new projects</li>
-      <li>📱 Viral social media trends, challenges & memes</li>
-      <li>🎬 Movies, music & entertainment highlights</li>
-      <li>💬 Manchester local buzz, famous visitors & hot spots</li>
+      <li>⭐ Stars visiting London venues, O2 Arena, Wembley, Royal Albert Hall events</li>
+      <li>📱 Viral trends, tech influencers & AI content creators growing in London digital scene</li>
+      <li>🎬 Filming locations across London, new movie releases & music chart facts</li>
     </ul>
-    <p>Fresh stories daily — fun, light & engaging!</p>
   </div>
 </section>
 
-<!-- 👁️ MYSTERIES -->
+<!-- 👁️ VERIFIED MYSTERIES -->
 <section id="mysteries" class="page">
   <div class="card">
-    <h2>👁️ Conspiracies & Unexplained</h2>
-    <p>Strange, fascinating & thought‑provoking topics:</p>
+    <h2>👁️ Documented Mysteries & Unexplained Phenomena</h2>
     <ul>
-      <li>🔍 Famous unsolved disappearances & cold cases</li>
-      <li>👽 UFO sightings, strange lights & unexplained encounters</li>
-      <li>🌊 Bermuda Triangle, ancient mysteries & lost civilisations</li>
-      <li>💡 Popular theories, hidden history & curious phenomena</li>
+      <li>London’s own mysteries: Jack the Ripper historical investigation records, reported Tower of London ghost sightings</li>
+      <li>Famous global cases: Dyatlov Pass, Bermuda Triangle, Flight MH370, UFO sightings over London/UK</li>
+      <li>Strange natural phenomena, ancient monuments, unsolved historical puzzles — evidence vs theories explained clearly</li>
     </ul>
-    <p>New interesting subjects added regularly!</p>
   </div>
 </section>
 
-<!-- ✨ DAILY FACTS -->
+<!-- ✨ SCIENCE & FACTS — EXPANDED -->
 <section id="daily" class="page">
   <div class="card">
-    <h2>✨ Daily Facts & Trivia</h2>
-    <p id="daily-fact">✨ Manchester was the world’s first industrial city<br>✨ Shortest scheduled flight only ~90 seconds<br>✨ Pure honey never spoils — keeps thousands of years<br>✨ Octopus has three hearts & blue blood!</p>
+    <h2>✨ Scientific, Tech & Historical Facts</h2>
+    <p id="daily-fact">✅ London population ~9 million, one of world’s most visited cities<br>✅ Alan Turing — London/UK genius, father of computing & AI theory<br>✅ Light ~299,792 km/s; Octopus 3 hearts blue blood; pure honey never spoils<br>✅ AI Deep Learning modelled after human brain neural networks<br>✅ River Thames flows 346km through London, tidal & historic waterway</p>
   </div>
 </section>
 
 <!-- 💬 COMMUNITY -->
 <section id="community" class="page">
   <div class="card">
-    <h2>💬 Community & Polls</h2>
-    <p>Your place to join in!</p>
+    <h2>💬 London & UK Community Hub</h2>
     <ul>
-      <li>📊 Daily polls & quick questions — vote & see results</li>
-      <li>💭 Share opinions & chat about trending stories</li>
-      <li>📍 Find out what’s happening locally in Manchester</li>
-      <li>📝 Suggest topics you want us to cover next!</li>
+      <li>📊 Polls: AI future, London transport, green energy, science & tech questions</li>
+      <li>💬 Discuss tech advances, AI benefits/risks, local London events & history</li>
+      <li>🔗 Links: London councils, TfL, NHS, UK AI Safety Institute, museums & learning centres</li>
     </ul>
   </div>
 </section>
@@ -149,11 +197,8 @@ button {padding:0.4rem 0.7rem;background:#222;border:1px solid gold;color:gold;b
 <!-- ⚖️ LEGAL -->
 <section id="legal" class="page">
   <div class="card">
-    <h2>⚖️ Privacy & Legal</h2>
-    <p>✅ Fully GDPR & EU compliant<br>
-    ✅ Cookies only improve browsing experience<br>
-    ✅ No personal data shared without permission<br>
-    ✅ Owned & run by Hyperinversion LTD</p>
+    <h2>⚖️ Privacy & Legal Compliance</h2>
+    <p>✅ GDPR & UK GDPR compliant<br>✅ Owned & operated by <strong>Hyperinversion LTD</strong><br>✅ AI content educational only; cites public research & government sources<br>✅ Cookies & data rules meet UK/EU standards</p>
   </div>
 </section>
 
@@ -161,8 +206,7 @@ button {padding:0.4rem 0.7rem;background:#222;border:1px solid gold;color:gold;b
 <section id="about" class="page">
   <div class="card">
     <h2>ℹ️ About WowBite</h2>
-    <p><strong>WowBite</strong> is owned & operated by <strong>Hyperinversion LTD</strong>.</p>
-    <p>Our mission: <em>Bringing your world to you</em> — delivering lively, varied daily content, keeping you informed, entertained & connected with Manchester & UK happenings.</p>
+    <p><strong>WowBite</strong> — London‑based factual hub by <strong>Hyperinversion LTD</strong>. Mission: <em>Bringing your world to you</em> — delivering deep information, technology education, verified news & knowledge to London & UK readers.</p>
   </div>
 </section>
 </main>
@@ -175,10 +219,10 @@ button {padding:0.4rem 0.7rem;background:#222;border:1px solid gold;color:gold;b
   </div>
 </div>
 
-<footer>© <span id="year"></span> Hyperinversion LTD • Bringing your world to you</footer>
+<footer>© <span id="year"></span> Hyperinversion LTD • LONDON UK • Bringing your world to you</footer>
 
 <script>
-// ✅ PERFECT WORKING TAB SWITCH
+// ✅ TAB SWITCH WORKS PERFECT
 function switchTab(href){
   document.querySelectorAll('.tab-link').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -191,14 +235,19 @@ document.querySelectorAll('.tab-link').forEach(tab=>{
   tab.addEventListener('touchend',e=>{switchTab(tab.getAttribute('href'));e.preventDefault();},{passive:false});
 });
 
-// LIVE CLOCK
-function setTime(){const d=new Date();document.getElementById('live-time').textContent=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+" | "+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+// LIVE CLOCK — SHOWS LONDON TIME
+function setTime(){
+  const d=new Date();
+  document.getElementById('live-time').textContent=
+    "📍 LONDON • "+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+" | "+
+    d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
 setInterval(setTime,1000);setTime();document.getElementById('year').textContent=new Date().getFullYear();
 function closeCookie(){document.getElementById('cookie').style.display='none';}
 
-// LIGHT LIVE FEED – adds headlines without erasing content
+// LIVE NEWS FEED
 const PROXY="https://corsproxy.io/?";
-const FEEDS=[{name:"BBC UK",url:"https://feeds.bbci.co.uk/news/uk/rss.xml"},{name:"Sky UK",url:"https://feeds.skynews.com/feeds/rss/uk.xml"}];
+const FEEDS=[{name:"BBC London",url:"https://feeds.bbci.co.uk/news/england/london/rss.xml"},{name:"Sky UK",url:"https://feeds.skynews.com/feeds/rss/uk.xml"}];
 async function loadRSSFeed(){
   const container=document.getElementById("live-news-feed");
   try{
@@ -220,13 +269,15 @@ async function loadRSSFeed(){
 }
 window.addEventListener('load',()=>setTimeout(loadRSSFeed,1500));
 
-// rotate daily facts
+// ROTATING FACT LIST — includes AI & London facts
 const facts=[
-"✨ Manchester world’s first industrial city",
-"✨ Shortest flight ~90 seconds",
-"✨ Honey never spoils",
-"✨ Octopus three hearts blue blood",
-"✨ Water boils lower up mountains"
+"📍 London ~9 million people, global finance & AI hub",
+"🤖 Alan Turing — London pioneer, father of Artificial Intelligence concept",
+"🧠 Narrow AI = what we use daily; General AI does not exist yet",
+"🌉 River Thames flows 346km through London",
+"✨ Honey never spoils; Everest grows ~4mm/year",
+"⚡ Light travels ~299,792 km per second",
+"🏛️ Imperial College London top global AI research university"
 ];
 setInterval(()=>{const el=document.getElementById('daily-fact');if(el){el.textContent=facts[Math.floor(Math.random()*facts.length)];}},180000);
 </script>
