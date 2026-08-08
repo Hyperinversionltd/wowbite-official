@@ -3,59 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!-- Stop browser loading old cached version -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>WowBite | Hyperinversion LTD</title>
-<meta name="description" content="WowBite – Daily Manchester & UK news, trending gossip, unsolved mysteries, conspiracies & community hub. GDPR compliant, mobile friendly.">
+<meta name="description" content="WowBite – Daily Manchester & UK LIVE news, trending gossip, unsolved mysteries & community hub. GDPR compliant, mobile friendly.">
 <meta name="robots" content="index, follow">
 <style>
 * {margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 :root {--gold:#ffcc00;--darkgold:#b8860b;--dark:#0f0f1a;--mid:#1a1a2e;--light:#f0f0f5;--red:#e63946;}
-
 body {
   background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.78)), 
   url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;
   color:var(--light);line-height:1.55;min-height:100vh;
 }
-
-/* --- HEADER --- */
 header {background:rgba(0,0,0,0.88);padding:1.1rem;text-align:center;border-bottom:3px solid var(--gold);}
 h1 {color:var(--gold);font-size:1.8rem;margin-bottom:0.3rem;}
 .time-display {font-size:0.95rem;color:#ddd;font-weight:500;}
-
-/* --- TABS / NAV - FIXED TYPO + SAMSUNG TOUCH --- */
 nav {background:rgba(20,20,35,0.92);position:sticky;top:0;z-index:999;}
 .tabs {display:flex;flex-wrap:wrap;justify-content:center;list-style:none;}
-.tabs li a {
-  display:block;padding:0.8rem 0.95rem;color:var(--light);text-decoration:none;font-size:0.92rem;font-weight:500;
-  border-bottom:3px solid transparent;transition:all 0.2s ease;
-}
-.tabs li a.active, .tabs li a:hover, .tabs li a:active, .tabs li a:focus {
-  border-color:var(--gold);color:var(--gold);background:rgba(255,204,0,0.1);outline:none;
-}
-
-/* --- PAGES / CONTENT --- */
+.tabs li a {display:block;padding:0.8rem 0.95rem;color:var(--light);text-decoration:none;font-size:0.92rem;font-weight:500;border-bottom:3px solid transparent;}
+.tabs li a.active,.tabs li a:active,.tabs li a:focus,.tabs li a:hover {border-color:var(--gold);color:var(--gold);background:rgba(255,204,0,0.1);outline:none;}
 main {max-width:1250px;margin:0 auto;padding:1.1rem;}
 .page {display:none;animation:fade 0.35s ease;}
-.page.active {display:block;}
-@keyframes fade {from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
-
+.page.active {display:block;}@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 .card {background:rgba(18,18,30,0.85);border-radius:10px;padding:1.2rem;margin:1rem 0;border-left:4px solid var(--red);}
 h2 {color:var(--gold);margin-bottom:0.9rem;font-size:1.35rem;}
 .update-note {font-size:0.85rem;color:#bbb;margin-top:0.5rem;}
-
-/* --- GDPR COOKIE BANNER --- */
-#cookie {
-  position:fixed;bottom:0;left:0;width:100%;background:#000;padding:1rem;z-index:9999;border-top:2px solid var(--gold);
-}
-.cookie-btns {margin-top:0.6rem;gap:0.5rem;display:flex;flex-wrap:wrap;}
+/* LIVE FEED STYLES */
+.feed-item {border-bottom:1px solid #444;padding:0.7rem 0;}
+.feed-item a {color:#ffdd44;text-decoration:none;}
+.feed-item a:hover {text-decoration:underline;}
+.feed-time {font-size:0.78rem;color:#aaa;}
+#cookie {position:fixed;bottom:0;left:0;width:100%;background:#000;padding:1rem;z-index:9999;border-top:2px solid var(--gold);}
+.cookie-btns {margin-top:0.6rem;display:flex;gap:0.5rem;flex-wrap:wrap;}
 .cookie-btns button {padding:0.55rem 1.1rem;border-radius:5px;border:none;cursor:pointer;font-weight:500;}
-.btn-accept {background:var(--gold);color:black;}
-.btn-reject {background:#444;color:white;}
-
-/* --- FOOTER --- */
+.btn-accept{background:var(--gold);color:black;}
+.btn-reject{background:#444;color:white;}
 footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top:1px solid #333;margin-top:2rem;background:rgba(0,0,0,0.7);}
 </style>
 </head>
@@ -69,7 +53,7 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
 <nav>
   <ul class="tabs">
     <li><a href="#home" class="tab-link active">🏠 Home</a></li>
-    <li><a href="#news" class="tab-link">📰 News</a></li>
+    <li><a href="#news" class="tab-link">📰 LIVE News</a></li>
     <li><a href="#trending" class="tab-link">💋 Gossip</a></li>
     <li><a href="#mysteries" class="tab-link">👁️ Mysteries</a></li>
     <li><a href="#daily" class="tab-link">✨ Daily</a></li>
@@ -80,90 +64,29 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
 </nav>
 
 <main>
-  <!-- HOME -->
-  <section id="home" class="page active">
-    <h2>🔥 Top Stories</h2>
-    <div class="card" id="top-stories"></div>
-  </section>
+  <section id="home" class="page active"><h2>🔥 Top Stories</h2><div class="card" id="top-stories"></div></section>
 
-  <!-- NEWS -->
   <section id="news" class="page">
-    <h2>📰 UK & Manchester Live News</h2>
+    <h2>📰 LIVE UK & Manchester News</h2>
     <div class="card">
-      <p>Latest updates from trusted sources – auto‑refreshed daily.</p>
-      <ul style="margin:0.8rem;padding-left:1.2rem;">
-        <li>🏛️ UK & North West updates</li>
-        <li>🌤️ Manchester weather & local events</li>
-        <li>⚽ Sports & team news</li>
-        <li>🚦 Local travel & community alerts</li>
-      </ul>
+      <p>Updated automatically • Sources: BBC News, Sky News • <span id="feed-last-update"></span></p>
+      <div id="live-news-feed">Loading live headlines...</div>
     </div>
   </section>
 
-  <!-- GOSSIP -->
-  <section id="trending" class="page">
-    <h2>💋 Trending & Showbiz Gossip</h2>
-    <div class="card">
-      <p>Celebrity news, viral trends, social media buzz & local Manchester stories people are talking about right now!</p>
-    </div>
-  </section>
-
-  <!-- MYSTERIES -->
-  <section id="mysteries" class="page">
-    <h2>👁️ Conspiracies & Unexplained</h2>
-    <div class="card">
-      <p>Unsolved cases, strange phenomena, hidden history, popular theories & deep dives – fresh topics added daily!</p>
-    </div>
-  </section>
-
-  <!-- DAILY -->
-  <section id="daily" class="page">
-    <h2>✨ Daily Facts & Trivia</h2>
-    <div class="card" id="daily-fact"></div>
-  </section>
-
-  <!-- COMMUNITY -->
-  <section id="community" class="page">
-    <h2>💬 Community & Polls</h2>
-    <div class="card">
-      <p>Share your thoughts, vote in daily polls & join discussions!</p>
-    </div>
-  </section>
-
-  <!-- LEGAL -->
-  <section id="legal" class="page">
-    <h2>⚖️ Privacy & Legal</h2>
-    <div class="card">
-      <p>✅ GDPR compliant</p>
-      <p>✅ Cookies improve browsing experience</p>
-      <p>✅ Respects visitor privacy</p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="page">
-    <h2>ℹ️ About WowBite</h2>
-    <div class="card">
-      <p><strong>WowBite</strong> is owned & operated by <strong>Hyperinversion LTD</strong>.</p>
-      <p>Bringing fresh, engaging daily content to keep you informed and entertained!</p>
-    </div>
-  </section>
+  <section id="trending" class="page"><h2>💋 Trending & Showbiz Gossip</h2><div class="card"><p>Celebrity, viral buzz & local talk‑of‑town stories!</p></div></section>
+  <section id="mysteries" class="page"><h2>👁️ Conspiracies & Unexplained</h2><div class="card"><p>Unsolved cases, strange phenomena, theories & fresh daily topics</p></div></section>
+  <section id="daily" class="page"><h2>✨ Daily Facts & Trivia</h2><div class="card" id="daily-fact"></div></section>
+  <section id="community" class="page"><h2>💬 Community & Polls</h2><div class="card"><p>Share thoughts, vote daily & join discussions!</p></div></section>
+  <section id="legal" class="page"><h2>⚖️ Privacy & Legal</h2><div class="card"><p>✅ GDPR compliant<br>✅ Cookies improve browsing<br>✅ Respects visitor privacy</p></div></section>
+  <section id="about" class="page"><h2>ℹ️ About WowBite</h2><div class="card"><p><strong>WowBite</strong> owned & operated by <strong>Hyperinversion LTD</strong>.</p><p>Bringing fresh engaging daily content!</p></div></section>
 </main>
 
-<div id="cookie">
-  <strong>🍪 Cookie Notice:</strong> We use cookies to improve browsing experience. Continue or choose below.<br>
-  <div class="cookie-btns">
-    <button class="btn-accept" onclick="closeCookie()">Accept</button>
-    <button class="btn-reject" onclick="closeCookie()">Reject Non‑Essential</button>
-  </div>
-</div>
-
-<footer>
-  © <span id="year"></span> Hyperinversion LTD • Bringing your world to you
-</footer>
+<div id="cookie"><strong>🍪 Cookie Notice:</strong> We use cookies to improve browsing experience.<br><div class="cookie-btns"><button class="btn-accept" onclick="closeCookie()">Accept</button><button class="btn-reject" onclick="closeCookie()">Reject Non‑Essential</button></div></div>
+<footer>© <span id="year"></span> Hyperinversion LTD • Bringing your world to you</footer>
 
 <script>
-// --- SUPER RELIABLE TABS (CLICK + TOUCH FOR SAMSUNG) ---
+// TAB SWITCH click+touch reliable
 function switchTab(href){
   document.querySelectorAll('.tab-link').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -171,47 +94,59 @@ function switchTab(href){
   document.querySelector(href).classList.add('active');
   event.preventDefault();
 }
-document.querySelectorAll('.tab-link').forEach(tab => {
-  tab.addEventListener('click', e => switchTab(tab.getAttribute('href')));
-  tab.addEventListener('touchend', e => {switchTab(tab.getAttribute('href'));e.preventDefault();},{passive:false});
+document.querySelectorAll('.tab-link').forEach(tab=>{
+  tab.addEventListener('click',e=>switchTab(tab.getAttribute('href')));
+  tab.addEventListener('touchend',e=>{switchTab(tab.getAttribute('href'));e.preventDefault();},{passive:false});
 });
 
-// --- LIVE DATE/TIME (UK FORMAT) ---
-function setTime(){
-  const now = new Date();
-  document.getElementById('live-time').textContent = 
-    now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}) + ' | ' +
-    now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-}
-setInterval(setTime,1000); setTime();
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// --- COOKIE BANNER ---
+// LIVE CLOCK
+function setTime(){const d=new Date();document.getElementById('live-time').textContent=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+" | "+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+setInterval(setTime,1000);setTime();document.getElementById('year').textContent=new Date().getFullYear();
 function closeCookie(){document.getElementById('cookie').style.display='none';}
 
-// --- AUTO-UPDATING CONTENT ---
-const stories = [
-  "🔥 Manchester United secures vital win",
-  "⚽ City eye new signing in transfer update",
-  "📱 #WowBiteChallenge goes viral with 10M+ views",
-  "🌤️ Sunny week ahead for Greater Manchester",
-  "👁️ New clues in famous unsolved mystery",
-  "💋 Local celebrity spotted in city centre"
-];
-const facts = [
-  "✨ Did you know: Manchester was the world’s first industrial city?",
-  "✨ Fun fact: The shortest scheduled flight in the world is just 90 seconds!",
-  "✨ Today in history: First modern computer was turned on in 1945",
-  "✨ Amazing fact: Honey never spoils – 3000 year old honey is still edible!"
+// --- LIVE RSS FEED LOADER ---
+const PROXY = "https://api.allorigins.win/raw?url="; // bypass CORS
+const FEEDS = [
+  {name:"BBC UK", url:"https://feeds.bbci.co.uk/news/uk/rss.xml"},
+  {name:"Sky UK", url:"https://feeds.skynews.com/feeds/rss/uk.xml"}
 ];
 
-function rotateContent(){
-  document.getElementById('top-stories').innerHTML = `<strong>${stories[Math.floor(Math.random()*stories.length)]}</strong><br><span class="update-note">Updated just now</span>`;
-  document.getElementById('daily-fact').innerHTML = `<strong>${facts[Math.floor(Math.random()*facts.length)]}</strong>`;
+async function loadRSSFeed(){
+  const container=document.getElementById("live-news-feed");
+  container.innerHTML="<p>Loading live headlines...</p>";
+  let html="";
+  try{
+    for(const feed of FEEDS){
+      const res=await fetch(PROXY+encodeURIComponent(feed.url));
+      const xmlText=await res.text();
+      const parser=new DOMParser();
+      const xml=parser.parseFromString(xmlText,"application/xml");
+      const items=xml.querySelectorAll("item");
+      html+=`<h4 style="margin:1rem 0 0.5rem;color:var(--gold)">${feed.name}</h4>`;
+      // show latest 5 headlines per feed
+      for(let i=0;i<Math.min(5,items.length);i++){
+        const title=items[i].querySelector("title")?.textContent||"Headline";
+        const link=items[i].querySelector("link")?.textContent||"#";
+        const pub=items[i].querySelector("pubDate")?.textContent||"";
+        html+=`<div class="feed-item"><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a><div class="feed-time">${new Date(pub).toLocaleString('en-GB')}</div></div>`;
+      }
+    }
+    container.innerHTML=html;
+    document.getElementById("feed-last-update").textContent="Last refreshed: "+new Date().toLocaleTimeString('en-GB');
+  }catch(err){
+    container.innerHTML="<p>Live feed unavailable right now, check again shortly.</p>";
+    console.error("Feed error:",err);
+  }
 }
-rotateContent();
-setInterval(rotateContent, 180000);
+// run now + auto refresh every 15 mins
+loadRSSFeed();
+setInterval(loadRSSFeed, 900000);
 
+// rotating sample stories/facts
+const stories=["🔥 London United win","⚽ City transfer news","📱 #WowBiteChallenge viral","🌤️ Sunny week Greater Manchester","👁️ New mystery clues","💋 Local celebrity spotted"];
+const facts=["✨ London first industrial city","✨ Shortest flight ~90 seconds","✨ First modern computer 1945","✨ Honey never spoils!"];
+function rotate(){document.getElementById('top-stories').innerHTML=`<strong>${stories[Math.floor(Math.random()*stories.length)]}</strong><br><span class="update-note">Updated just now</span>`;document.getElementById('daily-fact').innerHTML=facts[Math.floor(Math.random()*facts.length)];}
+rotate();setInterval(rotate,180000);
 </script>
 </body>
 </html>
