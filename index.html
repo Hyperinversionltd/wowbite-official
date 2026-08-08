@@ -7,22 +7,28 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>WowBite | Hyperinversion LTD • LONDON</title>
-<meta name="description" content="WowBite London — curated news links, a plain-English AI guide, trending culture, unsolved mysteries and science facts, all clearly separating verified fact from popular speculation.">
+<meta name="description" content="WowBite London — curated news links, a plain-English AI guide, trending culture, unsolved mysteries, science facts and a community forum, all clearly separating verified fact from popular speculation.">
 <meta property="og:title" content="WowBite — London's Curiosity Hub">
-<meta property="og:description" content="AI explained simply, trusted London/UK news links, mysteries, and science facts.">
+<meta property="og:description" content="AI explained simply, trusted London/UK news links, mysteries, science facts and a forum.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;-webkit-tap-highlight-color:transparent;}
-:root {--gold:#ffcc00;--darkgold:#b8860b;--dark:#0f0f1a;--mid:#1a1a2e;--light:#f0f0f5;--red:#e63946;--techblue:#66b2ff;--viralpink:#ff6699;--mypurple:#9966ff;}
+:root {--gold:#ffcc00;--darkgold:#b8860b;--dark:#0f0f1a;--mid:#1a1a2e;--light:#f0f0f5;--red:#e63946;--techblue:#66b2ff;--viralpink:#ff6699;--mypurple:#9966ff;--forumgreen:#4ade80;}
 html{scroll-behavior:smooth;}
 body{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.78)),url('https://images.unsplash.com/photo-1513635269975-f51a82b55985?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;color:var(--light);line-height:1.75;min-height:100vh;}
 @media (max-width:768px){ body{background-attachment:scroll;} }
-header{background:rgba(0,0,0,0.88);padding:0.9rem 1rem;text-align:center;border-bottom:3px solid var(--gold);}
+header{background:rgba(0,0,0,0.88);padding:0.8rem 1rem;text-align:center;border-bottom:3px solid var(--gold);}
 h1{color:var(--gold);font-size:1.5rem;margin-bottom:0.2rem;}
-.time-display{font-size:0.82rem;color:#ccc;}
+.time-display{font-size:0.8rem;color:#ccc;margin-bottom:0.5rem;}
 
-/* --- COMPACT SCROLLABLE NAV (fixes oversized wrapping tab bar) --- */
+/* header search / jump box */
+.jump-box{display:flex;justify-content:center;gap:0.4rem;max-width:420px;margin:0 auto;}
+.jump-box input{flex:1;padding:0.45rem 0.7rem;border-radius:6px;border:1px solid #444;background:#111;color:#eee;font-size:0.85rem;}
+.jump-box button{padding:0.45rem 0.8rem;border-radius:6px;border:none;background:var(--gold);color:#111;font-weight:bold;cursor:pointer;font-size:0.85rem;}
+.jump-hint{font-size:0.7rem;color:#888;margin-top:0.3rem;}
+
+/* --- COMPACT SCROLLABLE NAV --- */
 nav{background:rgba(20,20,35,0.95);position:sticky;top:0;z-index:999;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
 .tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;list-style:none;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;}
 .tabs::-webkit-scrollbar{display:none;}
@@ -38,7 +44,8 @@ main{padding:1rem;max-width:1200px;margin:0 auto;}
 .ai-card{border-color:var(--techblue);}
 .viral-card{border-color:var(--viralpink);}
 .mystery-card{border-color:var(--mypurple);}
-h2{color:var(--gold);margin-bottom:1rem;font-size:1.3rem;line-height:1.5;}
+.forum-card{border-color:var(--forumgreen);}
+h2{color:var(--gold);margin-bottom:0.3rem;font-size:1.3rem;line-height:1.5;}
 h3{color:#ffdd66;margin:1rem 0 0.5rem;font-size:1.1rem;}
 h4{color:#88ddff;margin:0.7rem 0 0.4rem;font-size:1rem;}
 p{margin-bottom:0.8rem;font-size:0.97rem;}
@@ -47,6 +54,12 @@ li{margin-bottom:0.55rem;font-size:0.95rem;}
 a{color:#ffdd44;text-decoration:none;}
 a:hover,a:focus-visible{text-decoration:underline;}
 .note{font-size:0.85rem;color:#bbb;font-style:italic;}
+.meta-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.9rem;}
+.read-time{font-size:0.78rem;color:#999;}
+.share-btn{background:none;border:1px solid #666;color:#ddd;padding:0.3rem 0.6rem;border-radius:6px;font-size:0.75rem;cursor:pointer;}
+.share-btn:hover{border-color:var(--gold);color:var(--gold);}
+.thumb{width:100%;max-width:100%;height:180px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.9rem;display:block;background:#222;}
+.thumb-cap{font-size:0.72rem;color:#999;margin-top:-0.5rem;margin-bottom:0.8rem;}
 
 #cookie{position:fixed;bottom:0;width:100%;background:#000;padding:1rem;border-top:2px solid var(--gold);z-index:9999;}
 .cookie-btns button{padding:0.5rem 1rem;margin:0 0.3rem;border-radius:5px;border:none;cursor:pointer;font-weight:bold;}
@@ -56,6 +69,24 @@ a:hover,a:focus-visible{text-decoration:underline;}
 #top-btn{position:fixed;right:1rem;bottom:4.5rem;background:var(--gold);color:#111;border:none;border-radius:50%;width:42px;height:42px;font-size:1.1rem;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.5);display:none;z-index:998;}
 #top-btn.show{display:block;}
 
+/* Forum */
+.forum-thread{background:rgba(0,0,0,0.35);border-radius:8px;padding:0.9rem;margin-bottom:0.9rem;border-left:3px solid var(--forumgreen);}
+.forum-thread h4{margin:0 0 0.3rem;color:#fff;}
+.forum-meta{font-size:0.72rem;color:#999;margin-bottom:0.5rem;}
+.forum-reply{background:rgba(255,255,255,0.04);border-radius:6px;padding:0.5rem 0.7rem;margin:0.4rem 0 0 1rem;font-size:0.88rem;}
+.forum-form{display:flex;flex-direction:column;gap:0.5rem;margin-top:0.6rem;}
+.forum-form input,.forum-form textarea{padding:0.6rem;border-radius:6px;border:1px solid #444;background:#111;color:#eee;font-family:inherit;font-size:0.9rem;}
+.forum-form textarea{min-height:70px;resize:vertical;}
+.forum-form button{align-self:flex-start;background:var(--forumgreen);color:#052e16;border:none;padding:0.5rem 1rem;border-radius:6px;font-weight:bold;cursor:pointer;}
+.reply-form{display:flex;gap:0.4rem;margin:0.5rem 0 0 1rem;}
+.reply-form input{flex:1;padding:0.4rem 0.6rem;border-radius:6px;border:1px solid #444;background:#111;color:#eee;font-size:0.85rem;}
+.reply-form button{padding:0.4rem 0.7rem;border-radius:6px;border:none;background:var(--forumgreen);color:#052e16;font-weight:bold;cursor:pointer;font-size:0.8rem;}
+
+/* Newsletter */
+.newsletter{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.6rem;}
+.newsletter input{flex:1;min-width:160px;padding:0.55rem 0.7rem;border-radius:6px;border:1px solid #444;background:#111;color:#eee;}
+.newsletter button{padding:0.55rem 1rem;border-radius:6px;border:none;background:var(--gold);color:#111;font-weight:bold;cursor:pointer;}
+
 footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:1px solid #333;margin-top:2rem;background:rgba(0,0,0,0.75);}
 </style>
 </head>
@@ -64,6 +95,11 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <header>
   <h1>✨ WOWBITE ✨</h1>
   <div class="time-display" id="live-time">📍 London • loading time…</div>
+  <div class="jump-box">
+    <input type="text" id="jump-input" placeholder="Search sections… e.g. 'mysteries'" aria-label="Jump to a section">
+    <button id="jump-btn">Go</button>
+  </div>
+  <div class="jump-hint">Tries to match a tab name — try "AI", "forum", "science"…</div>
 </header>
 
 <nav aria-label="Site sections">
@@ -74,7 +110,7 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
     <li><a class="tab-link" role="tab" aria-selected="false" data-tab="viral">🔥 Trending</a></li>
     <li><a class="tab-link" role="tab" aria-selected="false" data-tab="conspire">🕵️ Mysteries</a></li>
     <li><a class="tab-link" role="tab" aria-selected="false" data-tab="science">🔬 Science</a></li>
-    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="community">💬 Community</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="forum">💬 Forum</a></li>
     <li><a class="tab-link" role="tab" aria-selected="false" data-tab="legal">⚖️ Privacy</a></li>
     <li><a class="tab-link" role="tab" aria-selected="false" data-tab="about">ℹ️ About</a></li>
   </ul>
@@ -85,7 +121,10 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <!-- 🏠 HOME -->
 <section id="home" class="page active">
   <div class="card">
+    <img class="thumb" loading="lazy" src="https://picsum.photos/seed/london-thames-skyline/900/500" alt="London skyline and River Thames">
+    <p class="thumb-cap">Illustrative stock photo — London skyline.</p>
     <h2>Welcome to WowBite — London, United Kingdom</h2>
+    <div class="meta-row"><span class="read-time">~2 min read</span><button class="share-btn" data-share-title="WowBite — London's Curiosity Hub" data-share-text="Check out WowBite">Share</button></div>
     <p>WowBite is a small London-based reference site run by Hyperinversion LTD. Rather than trying to break news ourselves, we do three things: explain AI and science topics in plain English, point you to trustworthy primary sources for London and UK news, and take a clear-eyed look at popular mysteries and trending stories — separating what's actually confirmed from what's just widely repeated.</p>
     <h3>What you'll find here</h3>
     <ul>
@@ -93,6 +132,7 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
       <li><strong>Curated news links</strong> — direct paths to the BBC, Sky News, TfL and City Hall rather than a rehash of their reporting.</li>
       <li><strong>Fact vs. theory, always labelled</strong> — for viral stories and classic mysteries alike.</li>
       <li><strong>Science facts you can actually verify</strong>, with enough context to know why they're true.</li>
+      <li><strong>A community forum</strong> — swap tips and opinions with other readers (see the Forum tab).</li>
     </ul>
     <h3>London, in brief</h3>
     <p>Greater London is home to roughly 9 million people and is one of the world's major centres for finance, media and research — including AI safety work at Imperial College London and the UK's AI Security Institute. Landmarks like the Tower of London, the British Museum and the Thames sit alongside a fast-growing tech and research sector.</p>
@@ -102,7 +142,10 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <!-- 🤖 AI -->
 <section id="ai" class="page">
   <div class="card ai-card">
+    <img class="thumb" loading="lazy" src="https://picsum.photos/seed/ai-technology-network/900/500" alt="Abstract technology illustration">
+    <p class="thumb-cap">Illustrative stock photo — technology theme.</p>
     <h2>🤖 A Plain-English Guide to AI</h2>
+    <div class="meta-row"><span class="read-time">~4 min read</span><button class="share-btn" data-share-title="A Plain-English Guide to AI — WowBite" data-share-text="A no-hype explainer on AI">Share</button></div>
     <p><strong>What AI actually is:</strong> software that performs tasks which normally require human judgement — recognising speech or images, finding patterns in data, translating language, or generating text, images and audio.</p>
 
     <h3>A short history</h3>
@@ -134,7 +177,10 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <!-- 📰 NEWS -->
 <section id="news" class="page">
   <div class="card">
+    <img class="thumb" loading="lazy" src="https://picsum.photos/seed/london-tower-bridge-news/900/500" alt="London bridge and cityscape">
+    <p class="thumb-cap">Illustrative stock photo — London cityscape.</p>
     <h2>📰 London & UK News — Straight to the Source</h2>
+    <div class="meta-row"><span class="read-time">~1 min read</span><button class="share-btn" data-share-title="London & UK News Links — WowBite" data-share-text="Trusted London and UK news sources">Share</button></div>
     <p>We don't run a newsroom, so rather than paraphrase other outlets' reporting, we'd rather send you straight to it. These are the sources we check first:</p>
     <ul>
       <li><a href="https://www.bbc.co.uk/news/england/london" target="_blank" rel="noopener">BBC London News</a> — local coverage across Greater London.</li>
@@ -144,13 +190,17 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
     </ul>
     <h3>What we do add</h3>
     <p>Context: explaining why a policy change matters, what a transport disruption means for commuters, or the background behind a recurring story — the kind of thing that doesn't fit in a headline.</p>
+    <p class="note">Note: a static page like this can't safely pull live headlines from these sites directly in your browser (they don't allow that kind of cross-site request) — that's why we link out instead of embedding their feeds.</p>
   </div>
 </section>
 
 <!-- 🔥 TRENDING -->
 <section id="viral" class="page">
   <div class="card viral-card">
+    <img class="thumb" loading="lazy" src="https://picsum.photos/seed/o2-arena-london-event/900/500" alt="Concert venue and lights">
+    <p class="thumb-cap">Illustrative stock photo — event/venue theme.</p>
     <h2>🔥 Trending & Viral — With a Fact-Check Habit</h2>
+    <div class="meta-row"><span class="read-time">~2 min read</span><button class="share-btn" data-share-title="Trending & Viral — WowBite" data-share-text="How to fact-check viral stories">Share</button></div>
     <p>Viral stories spread because they're interesting, not because they're verified. Our approach: note what's actually confirmed by a named, checkable source, and clearly flag anything that's still just claim-and-counterclaim.</p>
     <h3>How to read a viral story critically</h3>
     <ul>
@@ -166,7 +216,10 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <!-- 🕵️ MYSTERIES -->
 <section id="conspire" class="page">
   <div class="card mystery-card">
+    <img class="thumb" loading="lazy" src="https://picsum.photos/seed/victorian-london-street-fog/900/500" alt="Old foggy London street">
+    <p class="thumb-cap">Illustrative stock photo — historic street scene.</p>
     <h2>🕵️ Unsolved Cases & Popular Theories</h2>
+    <div class="meta-row"><span class="read-time">~3 min read</span><button class="share-btn" data-share-title="Unsolved Cases & Popular Theories — WowBite" data-share-text="Fact vs theory on famous mysteries">Share</button></div>
     <p>These are genuinely interesting because they're unresolved — but "unresolved" is different from "anything goes." We separate the documented record from the theories built on top of it.</p>
     <h3>London & UK</h3>
     <ul>
@@ -186,7 +239,10 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <!-- 🔬 SCIENCE -->
 <section id="science" class="page">
   <div class="card">
+    <img class="thumb" loading="lazy" src="https://picsum.photos/seed/ocean-octopus-nature/900/500" alt="Ocean and marine life scene">
+    <p class="thumb-cap">Illustrative stock photo — nature/ocean theme.</p>
     <h2>🔬 Science Facts Worth Knowing</h2>
+    <div class="meta-row"><span class="read-time">~2 min read</span><button class="share-btn" data-share-title="Science Facts — WowBite" data-share-text="Verifiable science facts">Share</button></div>
     <h3>Space & physics</h3>
     <ul>
       <li>Light travels at about 299,792 km per second in a vacuum — fast enough to circle the Earth roughly 7.5 times in one second.</li>
@@ -205,16 +261,19 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
   </div>
 </section>
 
-<!-- 💬 COMMUNITY -->
-<section id="community" class="page">
-  <div class="card">
-    <h2>💬 Community</h2>
-    <p>A space to compare notes on London life, AI, science and the week's talking points.</p>
-    <ul>
-      <li>Discussion prompts: "How is AI actually changing your work?", "Best-kept-secret London spot?", "Which unsolved case interests you most?"</li>
-      <li>Useful external links: <a href="https://www.nhs.uk/" target="_blank" rel="noopener">NHS</a>, London borough libraries, and UK science organisations.</li>
-    </ul>
-    <p><strong>House rules:</strong> be respectful, don't state unverified claims as fact, and no hate speech.</p>
+<!-- 💬 FORUM (client-side demo, session-only) -->
+<section id="forum" class="page">
+  <div class="card forum-card">
+    <h2>💬 WowBite Forum</h2>
+    <p class="note">Demo forum: posts live only in your current browser session (nothing is sent to a server), so they'll reset if you reload the page. A real deployed version would need a small backend to store posts permanently and moderate content.</p>
+    <div id="forum-threads"></div>
+    <h3>Start a new thread</h3>
+    <div class="forum-form">
+      <input type="text" id="new-name" placeholder="Your name (optional)" maxlength="40">
+      <input type="text" id="new-title" placeholder="Thread title" maxlength="80">
+      <textarea id="new-body" placeholder="What's on your mind?" maxlength="500"></textarea>
+      <button id="new-thread-btn">Post Thread</button>
+    </div>
   </div>
 </section>
 
@@ -227,7 +286,14 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
       <li>This site aims to follow UK GDPR principles: cookies are used only for essential site function and, where accepted, analytics and advertising.</li>
       <li>You can reject non-essential cookies using the banner — essential cookies (needed for the site to function) still apply.</li>
       <li>Content here is for general information and education. Sources are linked where relevant, and speculation is labelled as such rather than presented as fact.</li>
+      <li>The Forum tab stores posts only in your browser's memory for this visit — nothing is transmitted or saved server-side in this demo version.</li>
     </ul>
+    <h3>Stay updated (demo)</h3>
+    <p>This is a placeholder — no emails are actually collected. In a real deployment this would connect to a mailing list provider.</p>
+    <div class="newsletter">
+      <input type="email" placeholder="you@example.com" disabled>
+      <button disabled>Subscribe</button>
+    </div>
   </div>
 </section>
 
@@ -235,8 +301,10 @@ footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:
 <section id="about" class="page">
   <div class="card">
     <h2>ℹ️ About WowBite</h2>
-    <p><strong>What we're trying to do:</strong> be a small, honest reference point — plain explanations of AI and science, direct links to real news sources rather than a rewrite of them, and a critical-thinking lens on trending stories and classic mysteries.</p>
-    <p>We're a small, growing site based in London. If something here is inaccurate or out of date, we'd genuinely like to know — get in touch via the Community tab.</p>
+    <p><strong>What we're trying to do:</strong> be a small, honest reference point — plain explanations of AI and science, direct links to real news sources rather than a rewrite of them, a critical-thinking lens on trending stories and classic mysteries, and a place to talk about it all.</p>
+    <p>We're a small, growing site based in London. If something here is inaccurate or out of date, we'd genuinely like to know — post about it in the Forum tab.</p>
+    <h3>A note on the thumbnails</h3>
+    <p>Images across the site are topic-illustrative stock photography, not live news photography — a static page like this can't reliably pull real-time images from third-party feeds in a visitor's browser. Where a fact benefits from a real photo (e.g. a historical figure), we describe it in the text and link to a source instead of risking a misattributed image.</p>
   </div>
 </section>
 
@@ -262,17 +330,68 @@ document.addEventListener('DOMContentLoaded',function(){
   const tabLinks=document.querySelectorAll('.tab-link');
   const allPages=document.querySelectorAll('.page');
 
+  function activateTabByName(name){
+    const link=[...tabLinks].find(l=>l.getAttribute('data-tab')===name);
+    if(!link) return false;
+    tabLinks.forEach(l=>{l.classList.remove('active');l.setAttribute('aria-selected','false');});
+    allPages.forEach(p=>p.classList.remove('active'));
+    link.classList.add('active');
+    link.setAttribute('aria-selected','true');
+    link.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+    document.getElementById(name).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    return true;
+  }
+
   tabLinks.forEach(link=>{
-    function activateTab(){
-      tabLinks.forEach(l=>{l.classList.remove('active');l.setAttribute('aria-selected','false');});
-      allPages.forEach(p=>p.classList.remove('active'));
-      link.classList.add('active');
-      link.setAttribute('aria-selected','true');
-      link.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-      document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+    function activate(){ activateTabByName(link.getAttribute('data-tab')); }
+    link.addEventListener('click',activate);
+    link.addEventListener('touchend',function(e){e.preventDefault();activate();},{passive:false});
+  });
+
+  // JUMP / SEARCH BOX — matches typed text against tab names & labels
+  const tabSynonyms={
+    home:['home','welcome','start'],
+    ai:['ai','artificial intelligence','tech','technology'],
+    news:['news','headlines','bbc','sky','tfl','transport'],
+    viral:['viral','trending','buzz','celebrity','culture'],
+    conspire:['mystery','mysteries','conspiracy','conspiracies','unsolved','ripper','triangle'],
+    science:['science','facts','space','biology','physics'],
+    forum:['forum','community','discuss','discussion','chat'],
+    legal:['legal','privacy','cookies','gdpr'],
+    about:['about','info','contact']
+  };
+  function jumpToQuery(q){
+    q=q.trim().toLowerCase();
+    if(!q) return;
+    for(const [tab,words] of Object.entries(tabSynonyms)){
+      if(words.some(w=>w.includes(q)||q.includes(w))){ activateTabByName(tab); return; }
     }
-    link.addEventListener('click',activateTab);
-    link.addEventListener('touchend',function(e){e.preventDefault();activateTab();},{passive:false});
+  }
+  document.getElementById('jump-btn').addEventListener('click',()=>{
+    jumpToQuery(document.getElementById('jump-input').value);
+  });
+  document.getElementById('jump-input').addEventListener('keydown',(e)=>{
+    if(e.key==='Enter'){ jumpToQuery(e.target.value); }
+  });
+
+  // SHARE BUTTONS (Web Share API with clipboard fallback)
+  document.querySelectorAll('.share-btn').forEach(btn=>{
+    btn.addEventListener('click',async ()=>{
+      const title=btn.getAttribute('data-share-title')||document.title;
+      const text=btn.getAttribute('data-share-text')||'';
+      const url=window.location.href;
+      if(navigator.share){
+        try{ await navigator.share({title,text,url}); }catch(e){/* user cancelled */}
+      } else if(navigator.clipboard){
+        try{
+          await navigator.clipboard.writeText(url);
+          const original=btn.textContent;
+          btn.textContent='Link copied!';
+          setTimeout(()=>{btn.textContent=original;},1500);
+        }catch(e){}
+      }
+    });
   });
 
   // LIVE LONDON CLOCK
@@ -306,6 +425,73 @@ document.addEventListener('DOMContentLoaded',function(){
     topBtn.classList.toggle('show',window.scrollY>400);
   });
   topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  // ---------------- FORUM (in-memory, session-only) ----------------
+  let threads=[
+    {id:1,name:'Priya',title:'Best AI tools for everyday admin?',body:"Curious what people actually use day-to-day rather than the hyped stuff.",time:'Earlier today',replies:[
+      {name:'Dan',body:'Honestly just use it for drafting emails and summarising long PDFs — nothing fancy.'}
+    ]},
+    {id:2,name:'Marcus',title:"Anyone been to the O2 recently?",body:"Thinking of getting tickets for a show there, is it easy to get to by Tube?",time:'Yesterday',replies:[]}
+  ];
+  let nextId=3;
+
+  function escapeHtml(str){
+    const d=document.createElement('div');
+    d.textContent=str;
+    return d.innerHTML;
+  }
+
+  function renderThreads(){
+    const container=document.getElementById('forum-threads');
+    if(!container) return;
+    container.innerHTML='';
+    threads.slice().reverse().forEach(t=>{
+      const div=document.createElement('div');
+      div.className='forum-thread';
+      const repliesHtml=t.replies.map(r=>`<div class="forum-reply"><strong>${escapeHtml(r.name||'Anonymous')}:</strong> ${escapeHtml(r.body)}</div>`).join('');
+      div.innerHTML=`
+        <h4>${escapeHtml(t.title)}</h4>
+        <div class="forum-meta">by ${escapeHtml(t.name||'Anonymous')} · ${escapeHtml(t.time)}</div>
+        <p>${escapeHtml(t.body)}</p>
+        ${repliesHtml}
+        <form class="reply-form" data-id="${t.id}">
+          <input type="text" placeholder="Write a reply…" maxlength="300" required>
+          <button type="submit">Reply</button>
+        </form>
+      `;
+      container.appendChild(div);
+    });
+    container.querySelectorAll('.reply-form').forEach(form=>{
+      form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const id=Number(form.getAttribute('data-id'));
+        const input=form.querySelector('input');
+        const body=input.value.trim();
+        if(!body) return;
+        const thread=threads.find(t=>t.id===id);
+        if(thread){
+          thread.replies.push({name:'You',body});
+          renderThreads();
+        }
+      });
+    });
+  }
+
+  const newThreadBtn=document.getElementById('new-thread-btn');
+  if(newThreadBtn){
+    newThreadBtn.addEventListener('click',()=>{
+      const name=document.getElementById('new-name').value.trim();
+      const title=document.getElementById('new-title').value.trim();
+      const body=document.getElementById('new-body').value.trim();
+      if(!title||!body) return;
+      threads.push({id:nextId++,name:name||'Anonymous',title,body,time:'Just now',replies:[]});
+      document.getElementById('new-name').value='';
+      document.getElementById('new-title').value='';
+      document.getElementById('new-body').value='';
+      renderThreads();
+    });
+  }
+  renderThreads();
 });
 </script>
 </body>
