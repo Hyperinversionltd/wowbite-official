@@ -2,237 +2,310 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>WowBite | Hyperinversion LTD • LONDON</title>
-<meta name="description" content="WowBite London UK — Complete news hub, full AI guide, trending viral stories, celebrity facts, verified mysteries, conspiracy deep dives, science knowledge & community.">
+<meta name="description" content="WowBite London — curated news links, a plain-English AI guide, trending culture, unsolved mysteries and science facts, all clearly separating verified fact from popular speculation.">
+<meta property="og:title" content="WowBite — London's Curiosity Hub">
+<meta property="og:description" content="AI explained simply, trusted London/UK news links, mysteries, and science facts.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;-webkit-tap-highlight-color:rgba(255,204,0,0.3);}
-:root {--gold:#ffcc00;--dark:#0f0f1a;--light:#f0f0f5;--red:#e63946;--techblue:#66b2ff;--viralpink:#ff6699;--mypurple:#9966ff;}
-body{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.78)),url('https://images.unsplash.com/photo-1513635269975-f51a82b55985?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;color:var(--light);line-height:1.8;min-height:100vh;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;-webkit-tap-highlight-color:transparent;}
+:root {--gold:#ffcc00;--darkgold:#b8860b;--dark:#0f0f1a;--mid:#1a1a2e;--light:#f0f0f5;--red:#e63946;--techblue:#66b2ff;--viralpink:#ff6699;--mypurple:#9966ff;}
+html{scroll-behavior:smooth;}
+body{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.78)),url('https://images.unsplash.com/photo-1513635269975-f51a82b55985?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;color:var(--light);line-height:1.75;min-height:100vh;}
+@media (max-width:768px){ body{background-attachment:scroll;} }
+header{background:rgba(0,0,0,0.88);padding:0.9rem 1rem;text-align:center;border-bottom:3px solid var(--gold);}
+h1{color:var(--gold);font-size:1.5rem;margin-bottom:0.2rem;}
+.time-display{font-size:0.82rem;color:#ccc;}
 
-/* === HEADER === */
-header{background:rgba(0,0,0,0.88);padding:1rem;text-align:center;border-bottom:3px solid var(--gold);}
-h1{color:var(--gold);font-size:1.7rem;margin-bottom:0.3rem;}
-.time-display{font-size:0.9rem;color:#ddd;}
+/* --- COMPACT SCROLLABLE NAV (fixes oversized wrapping tab bar) --- */
+nav{background:rgba(20,20,35,0.95);position:sticky;top:0;z-index:999;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
+.tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;list-style:none;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;}
+.tabs::-webkit-scrollbar{display:none;}
+.tabs li{flex:0 0 auto;scroll-snap-align:start;}
+.tabs li a{display:block;white-space:nowrap;padding:0.65rem 0.85rem;font-size:0.82rem;color:var(--light);text-decoration:none;border-bottom:3px solid transparent;cursor:pointer;transition:0.2s;}
+.tabs li a.active{border-color:var(--gold);color:var(--gold);background:rgba(255,204,0,0.15);font-weight:bold;}
 
-/* === 🛑 FIXED TAB NAV — NO MORE STUCK/OVERLAP === */
-nav{background:rgba(20,20,35,0.95);position:sticky;top:0;z-index:9999;width:100%;box-shadow:0 4px 8px rgba(0,0,0,0.6);}
-.tabs{display:flex;flex-wrap:wrap;justify-content:center;list-style:none;margin:0;padding:0;}
-.tabs li{margin:0;}
-.tabs li a{display:block;padding:0.7rem 0.65rem;font-size:0.88rem;color:#ccc;text-decoration:none;border-bottom:3px solid transparent;cursor:pointer;user-select:none;}
-.tabs li a.active{border-color:var(--gold);color:var(--gold);background:rgba(255,204,0,0.12);font-weight:bold;}
-
-/* === 🛑 CRITICAL PAGE DISPLAY — FORCE WORK, NO HIDDEN/STUCK === */
 main{padding:1rem;max-width:1200px;margin:0 auto;}
-.page{display:none;padding:0.5rem 0;}
-.page.active{display:block !important;animation:fadeIn 0.3s ease;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-
-/* === CARDS & STYLING === */
+.page{display:none;padding:0.6rem 0;animation:fadeIn 0.35s ease;}
+.page.active{display:block !important;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
 .card{background:rgba(18,18,30,0.85);border-radius:10px;padding:1.4rem;margin:1.2rem 0;border-left:4px solid var(--red);box-shadow:0 3px 6px rgba(0,0,0,0.3);}
 .ai-card{border-color:var(--techblue);}
 .viral-card{border-color:var(--viralpink);}
 .mystery-card{border-color:var(--mypurple);}
-h2{color:var(--gold);margin-bottom:1rem;font-size:1.4rem;}
-h3{color:#ffdd66;margin:1rem 0 0.5rem;font-size:1.2rem;}
-p{margin-bottom:0.8rem;}
-ul{padding-left:1.5rem;margin:0.8rem 0;}
-li{margin-bottom:0.6rem;}
-a{color:#ffdd44;}
+h2{color:var(--gold);margin-bottom:1rem;font-size:1.3rem;line-height:1.5;}
+h3{color:#ffdd66;margin:1rem 0 0.5rem;font-size:1.1rem;}
+h4{color:#88ddff;margin:0.7rem 0 0.4rem;font-size:1rem;}
+p{margin-bottom:0.8rem;font-size:0.97rem;}
+ul{padding-left:1.4rem;margin:0.8rem 0;}
+li{margin-bottom:0.55rem;font-size:0.95rem;}
+a{color:#ffdd44;text-decoration:none;}
+a:hover,a:focus-visible{text-decoration:underline;}
+.note{font-size:0.85rem;color:#bbb;font-style:italic;}
 
-/* === ✅ WORKING COOKIE BANNER === */
-#cookie{position:fixed;bottom:0;width:100%;background:#0a0a18;padding:1rem;border-top:3px solid var(--gold);z-index:99999;}
-.cookie-btns{display:flex;gap:0.5rem;justify-content:center;margin-top:0.7rem;flex-wrap:wrap;}
-.btn-accept{background:var(--gold);color:#000;padding:0.5rem 1rem;border-radius:5px;border:none;font-weight:bold;}
-.btn-reject{background:#555;color:#fff;padding:0.5rem 1rem;border-radius:5px;border:none;font-weight:bold;}
+#cookie{position:fixed;bottom:0;width:100%;background:#000;padding:1rem;border-top:2px solid var(--gold);z-index:9999;}
+.cookie-btns button{padding:0.5rem 1rem;margin:0 0.3rem;border-radius:5px;border:none;cursor:pointer;font-weight:bold;}
+.btn-accept{background:var(--gold);color:black;}
+.btn-reject{background:#444;color:white;}
 
-footer{text-align:center;padding:1rem;color:#aaa;font-size:0.85rem;border-top:1px solid #333;margin-top:2rem;background:rgba(0,0,0,0.75);}
+#top-btn{position:fixed;right:1rem;bottom:4.5rem;background:var(--gold);color:#111;border:none;border-radius:50%;width:42px;height:42px;font-size:1.1rem;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.5);display:none;z-index:998;}
+#top-btn.show{display:block;}
+
+footer{text-align:center;padding:1.2rem;color:#aaa;font-size:0.82rem;border-top:1px solid #333;margin-top:2rem;background:rgba(0,0,0,0.75);}
 </style>
 </head>
 <body>
 
 <header>
   <h1>✨ WOWBITE ✨</h1>
-  <div class="time-display" id="live-time">📍 LONDON • Live Clock</div>
+  <div class="time-display" id="live-time">📍 London • loading time…</div>
 </header>
 
-<nav>
-  <ul class="tabs">
-    <li><a class="tab-link active" data-tab="home">🏠 Home</a></li>
-    <li><a class="tab-link" data-tab="ai">🤖 AI Tech</a></li>
-    <li><a class="tab-link" data-tab="news">📰 Daily News</a></li>
-    <li><a class="tab-link" data-tab="viral">🔥 Trending Buzz</a></li>
-    <li><a class="tab-link" data-tab="conspire">🕵️ Mysteries</a></li>
-    <li><a class="tab-link" data-tab="science">🔬 Science Facts</a></li>
-    <li><a class="tab-link" data-tab="community">💬 Community</a></li>
-    <li><a class="tab-link" data-tab="legal">⚖️ Privacy</a></li>
-    <li><a class="tab-link" data-tab="about">ℹ️ About</a></li>
+<nav aria-label="Site sections">
+  <ul class="tabs" role="tablist">
+    <li><a class="tab-link active" role="tab" aria-selected="true" data-tab="home">🏠 Home</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="ai">🤖 AI Guide</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="news">📰 News Links</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="viral">🔥 Trending</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="conspire">🕵️ Mysteries</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="science">🔬 Science</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="community">💬 Community</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="legal">⚖️ Privacy</a></li>
+    <li><a class="tab-link" role="tab" aria-selected="false" data-tab="about">ℹ️ About</a></li>
   </ul>
 </nav>
 
 <main>
+
+<!-- 🏠 HOME -->
 <section id="home" class="page active">
   <div class="card">
-    <h2>📌 Welcome to WowBite — LONDON, UNITED KINGDOM</h2>
-    <p><strong>WowBite is your premium daily information hub built & owned by Hyperinversion LTD — Bringing your world to you!</strong> Serving London, Greater London and the whole UK — detailed verified info, trending stories, AI guides, mysteries & community updates that keep you coming back daily!</p>
-    <h3>🌍 Why Visit Daily?</h3>
+    <h2>Welcome to WowBite — London, United Kingdom</h2>
+    <p>WowBite is a small London-based reference site run by Hyperinversion LTD. Rather than trying to break news ourselves, we do three things: explain AI and science topics in plain English, point you to trustworthy primary sources for London and UK news, and take a clear-eyed look at popular mysteries and trending stories — separating what's actually confirmed from what's just widely repeated.</p>
+    <h3>What you'll find here</h3>
     <ul>
-      <li>✅ Full detailed articles & facts — never empty content</li>
-      <li>✅ Covers local news, viral buzz, celebrity interest & unsolved mysteries</li>
-      <li>✅ Fresh rotating facts & topics every day</li>
-      <li>✅ Smooth mobile navigation & fast loading</li>
+      <li><strong>A real AI explainer</strong> — history, the different types of AI, and where the genuine risks and benefits lie, without hype.</li>
+      <li><strong>Curated news links</strong> — direct paths to the BBC, Sky News, TfL and City Hall rather than a rehash of their reporting.</li>
+      <li><strong>Fact vs. theory, always labelled</strong> — for viral stories and classic mysteries alike.</li>
+      <li><strong>Science facts you can actually verify</strong>, with enough context to know why they're true.</li>
     </ul>
-    <h3>🏙️ London Hub</h3>
-    <p>Capital UK — 9M+ population, world finance/media/tech centre, home to UK AI Safety Institute & Imperial College London.</p>
+    <h3>London, in brief</h3>
+    <p>Greater London is home to roughly 9 million people and is one of the world's major centres for finance, media and research — including AI safety work at Imperial College London and the UK's AI Security Institute. Landmarks like the Tower of London, the British Museum and the Thames sit alongside a fast-growing tech and research sector.</p>
   </div>
 </section>
 
+<!-- 🤖 AI -->
 <section id="ai" class="page">
   <div class="card ai-card">
-    <h2>🤖 COMPLETE AI GUIDE — PAST, PRESENT & FUTURE</h2>
-    <p>AI = computer systems performing tasks that normally need human intelligence: learn, reason, understand language, recognise images & create content!</p>
-    <h3>📜 History & Pioneers</h3>
+    <h2>🤖 A Plain-English Guide to AI</h2>
+    <p><strong>What AI actually is:</strong> software that performs tasks which normally require human judgement — recognising speech or images, finding patterns in data, translating language, or generating text, images and audio.</p>
+
+    <h3>A short history</h3>
     <ul>
-      <li><strong>Alan Turing:</strong> 1950 Turing Test — foundation of modern computing/AI</li>
-      <li>1956: AI term created → growth → AI winters → Machine Learning → Deep Learning → Generative AI boom 2022+</li>
-      <li>UK leads safe AI research & regulation today</li>
+      <li><strong>Alan Turing (1950)</strong> proposed the "Turing Test" as a way to ask whether a machine's behaviour could be indistinguishable from a human's — his wartime code-breaking work and mathematical logic underpin much of modern computing.</li>
+      <li><strong>1956 — Dartmouth Conference:</strong> mathematician John McCarthy coined the term "Artificial Intelligence," kicking off decades of research into logic and reasoning systems.</li>
+      <li><strong>1990s–2010s:</strong> the field shifted toward <em>machine learning</em> — systems that learn patterns from data instead of following hand-written rules.</li>
+      <li><strong>2012 onward:</strong> deep learning (large neural networks) drove major gains in image and speech recognition, followed by the generative AI wave from 2022 onward (large language models, image generators, and similar tools).</li>
     </ul>
-    <h3>🧠 Types</h3>
+
+    <h3>Types of AI — and a common misconception</h3>
     <ul>
-      <li><strong>Narrow AI:</strong> Voice assistants, search, chatbots — what we use NOW</li>
-      <li><strong>General AI:</strong> Human‑level intelligence — <strong>NOT real yet</strong></li>
+      <li><strong>Narrow AI (what exists today):</strong> systems built for a specific task — search, translation, recommendation engines, chatbots, image recognition. Very capable within their lane, but they don't generalise beyond it.</li>
+      <li><strong>General AI (AGI):</strong> a hypothetical system matching human-level ability across arbitrary tasks. <strong>This does not exist yet</strong> — it's a research goal, not a current product, whatever marketing language might imply.</li>
+      <li><strong>Superintelligence:</strong> a further hypothetical stage beyond AGI, discussed mainly in research and policy circles, not something currently being built.</li>
     </ul>
-    <h3>💼 Uses & Rules</h3>
-    <p>Healthcare, smart cities, finance, creative tools — regulated for safety & privacy.</p>
+
+    <h3>Where it helps — and where it needs care</h3>
+    <ul>
+      <li><strong>Healthcare:</strong> assisting with reading scans, flagging anomalies, and accelerating early-stage drug research (always alongside, not instead of, clinicians).</li>
+      <li><strong>Cities:</strong> traffic and transport modelling, energy efficiency, and air-quality monitoring.</li>
+      <li><strong>Work:</strong> drafting, summarising, and data analysis at speed — with human review still needed for accuracy.</li>
+      <li><strong>Real risks:</strong> biased outputs from biased training data, privacy exposure, convincing deepfakes, and job disruption in some sectors. UK bodies including the AI Security Institute focus on testing systems for safety before wide deployment.</li>
+    </ul>
+    <p class="note">This is a general overview, not investment, legal or medical advice.</p>
   </div>
 </section>
 
+<!-- 📰 NEWS -->
 <section id="news" class="page">
   <div class="card">
-    <h2>📰 DAILY LONDON & UK VERIFIED NEWS</h2>
-    <p>Reliable updates from trusted sources:</p>
+    <h2>📰 London & UK News — Straight to the Source</h2>
+    <p>We don't run a newsroom, so rather than paraphrase other outlets' reporting, we'd rather send you straight to it. These are the sources we check first:</p>
     <ul>
-      <li>🚇 Transport: Tube/bus delays & improvements</li>
-      <li>🌤️ Weather, environment & public safety</li>
-      <li>🏙️ Development, business, tech & major events</li>
-      <li><a href="https://www.bbc.co.uk/news/england/london" target="_blank">BBC London News</a></li>
-      <li><a href="https://news.sky.com/uk" target="_blank">Sky News UK</a></li>
+      <li><a href="https://www.bbc.co.uk/news/england/london" target="_blank" rel="noopener">BBC London News</a> — local coverage across Greater London.</li>
+      <li><a href="https://news.sky.com/uk" target="_blank" rel="noopener">Sky News UK</a> — national and breaking stories.</li>
+      <li><a href="https://www.london.gov.uk/" target="_blank" rel="noopener">London City Hall</a> — official Mayoral and council announcements.</li>
+      <li><a href="https://tfl.gov.uk/" target="_blank" rel="noopener">Transport for London</a> — live Tube, bus and rail status.</li>
     </ul>
+    <h3>What we do add</h3>
+    <p>Context: explaining why a policy change matters, what a transport disruption means for commuters, or the background behind a recurring story — the kind of thing that doesn't fit in a headline.</p>
   </div>
 </section>
 
+<!-- 🔥 TRENDING -->
 <section id="viral" class="page">
   <div class="card viral-card">
-    <h2>🔥 TRENDING TOPICS & VIRAL BUZZ</h2>
-    <p>Everything people are talking about — facts & full context!</p>
+    <h2>🔥 Trending & Viral — With a Fact-Check Habit</h2>
+    <p>Viral stories spread because they're interesting, not because they're verified. Our approach: note what's actually confirmed by a named, checkable source, and clearly flag anything that's still just claim-and-counterclaim.</p>
+    <h3>How to read a viral story critically</h3>
     <ul>
-      <li>🌟 Concerts, premieres, celebrity confirmed updates</li>
-      <li>📱 Internet viral videos/challenges explained</li>
-      <li>💬 Popular stories — facts vs speculation clearly marked</li>
+      <li>Check whether the original claim has a named source, not just "people are saying."</li>
+      <li>Look for whether other independent outlets have confirmed it, or whether it's one unverified post being reshared.</li>
+      <li>Be extra cautious with images and video — deepfakes and out-of-context clips are now common in viral content.</li>
     </ul>
+    <h3>London culture, worth knowing about</h3>
+    <p>Major venues like the O2 Arena, Wembley Stadium and the Royal Albert Hall regularly host events that drive real, checkable local buzz — ticket sales, reviews and attendance are the kind of thing you can actually verify, unlike most social-media rumours.</p>
   </div>
 </section>
 
+<!-- 🕵️ MYSTERIES -->
 <section id="conspire" class="page">
   <div class="card mystery-card">
-    <h2>🕵️ UNSOLVED CASES & DEEP MYSTERIES</h2>
-    <p>Evidence, official reports & theories — clear distinction fact vs belief!</p>
+    <h2>🕵️ Unsolved Cases & Popular Theories</h2>
+    <p>These are genuinely interesting because they're unresolved — but "unresolved" is different from "anything goes." We separate the documented record from the theories built on top of it.</p>
+    <h3>London & UK</h3>
     <ul>
-      <li>Jack the Ripper, Tower of London legends</li>
-      <li>Bermuda Triangle, Flight MH370, strange sightings</li>
-      <li>Ancient mysteries & unexplained events</li>
+      <li><strong>Jack the Ripper (1888):</strong> at least five murders in Whitechapel are attributed to the same unidentified killer. The police investigation, victim details, and dozens of named suspects are documented history — the killer's identity is not, and never has been, confirmed.</li>
+      <li>Reported ghost sightings at the Tower of London and Hampton Court Palace are longstanding local folklore, not verified phenomena.</li>
     </ul>
+    <h3>Internationally known</h3>
+    <ul>
+      <li><strong>Bermuda Triangle:</strong> the disappearance rate in that region is not statistically unusual compared to other heavily trafficked waters — most mainstream investigations point to weather, navigation error, and heavy traffic rather than anything exotic.</li>
+      <li><strong>MH370 (2014):</strong> the aircraft's disappearance is confirmed; a small amount of debris was later recovered; the main wreckage and definitive cause have never been found despite extensive searches.</li>
+      <li><strong>Dyatlov Pass Incident (1959):</strong> nine hikers died in the Ural Mountains under circumstances that remain debated; a 2021 scientific study proposed a slab-avalanche explanation, though not every detail is universally accepted.</li>
+    </ul>
+    <p class="note">Presented for curiosity and critical thinking — not as confirmation of any theory beyond what's cited.</p>
   </div>
 </section>
 
+<!-- 🔬 SCIENCE -->
 <section id="science" class="page">
   <div class="card">
-    <h2>🔬 SCIENCE & AMAZING FACTS</h2>
+    <h2>🔬 Science Facts Worth Knowing</h2>
+    <h3>Space & physics</h3>
     <ul>
-      <li>⚡ Light = 299,792 km/s — fastest in universe!</li>
-      <li>🍯 Pure honey never spoils naturally</li>
-      <li>🌍 Earth spins ~1,670 km/h at equator</li>
+      <li>Light travels at about 299,792 km per second in a vacuum — fast enough to circle the Earth roughly 7.5 times in one second.</li>
     </ul>
-    <p id="daily-fact"><strong>Daily Fact:</strong> Loading…</p>
+    <h3>Nature & biology</h3>
+    <ul>
+      <li>Properly sealed honey essentially never spoils — its low moisture and acidity prevent microbial growth, which is why edible honey has been found in millennia-old Egyptian tombs.</li>
+      <li>An octopus has three hearts and blue, copper-based blood; two hearts pump blood to the gills, one to the rest of the body.</li>
+    </ul>
+    <h3>Earth & engineering</h3>
+    <ul>
+      <li>Mount Everest gains roughly 4mm in height most years due to ongoing tectonic uplift from the Indian and Eurasian plates colliding.</li>
+      <li>The River Thames runs about 346km from its source in Gloucestershire to the North Sea; the stretch through central London is tidal, rising and falling twice a day.</li>
+    </ul>
+    <p id="daily-fact"><strong>Rotating fact:</strong> loading…</p>
   </div>
 </section>
 
+<!-- 💬 COMMUNITY -->
 <section id="community" class="page">
   <div class="card">
-    <h2>💬 COMMUNITY & INTERACT</h2>
-    <p>Discuss AI, news, mysteries & science respectfully!</p>
+    <h2>💬 Community</h2>
+    <p>A space to compare notes on London life, AI, science and the week's talking points.</p>
     <ul>
-      <li>Polls & interesting questions</li>
-      <li>Share knowledge & local info</li>
-      <li>Respectful debate & friendly space</li>
+      <li>Discussion prompts: "How is AI actually changing your work?", "Best-kept-secret London spot?", "Which unsolved case interests you most?"</li>
+      <li>Useful external links: <a href="https://www.nhs.uk/" target="_blank" rel="noopener">NHS</a>, London borough libraries, and UK science organisations.</li>
+    </ul>
+    <p><strong>House rules:</strong> be respectful, don't state unverified claims as fact, and no hate speech.</p>
+  </div>
+</section>
+
+<!-- ⚖️ LEGAL -->
+<section id="legal" class="page">
+  <div class="card">
+    <h2>⚖️ Privacy & Cookies</h2>
+    <p>Operated by Hyperinversion LTD.</p>
+    <ul>
+      <li>This site aims to follow UK GDPR principles: cookies are used only for essential site function and, where accepted, analytics and advertising.</li>
+      <li>You can reject non-essential cookies using the banner — essential cookies (needed for the site to function) still apply.</li>
+      <li>Content here is for general information and education. Sources are linked where relevant, and speculation is labelled as such rather than presented as fact.</li>
     </ul>
   </div>
 </section>
 
-<section id="legal" class="page">
-  <div class="card">
-    <h2>⚖️ PRIVACY & COMPLIANCE</h2>
-    <p>✅ Owned & Operated by Hyperinversion LTD — Bringing your world to you</p>
-    <p>✅ UK GDPR & EU compliant — essential + optional ad/analytics cookies</p>
-  </div>
-</section>
-
+<!-- ℹ️ ABOUT -->
 <section id="about" class="page">
   <div class="card">
-    <h2>ℹ️ ABOUT WOWBITE</h2>
-    <p>Rich engaging daily hub built to grow traffic & ready for Google AdSense monetisation with fresh content added regularly!</p>
+    <h2>ℹ️ About WowBite</h2>
+    <p><strong>What we're trying to do:</strong> be a small, honest reference point — plain explanations of AI and science, direct links to real news sources rather than a rewrite of them, and a critical-thinking lens on trending stories and classic mysteries.</p>
+    <p>We're a small, growing site based in London. If something here is inaccurate or out of date, we'd genuinely like to know — get in touch via the Community tab.</p>
   </div>
 </section>
+
 </main>
 
+<button id="top-btn" aria-label="Back to top" title="Back to top">↑</button>
+
 <div id="cookie">
-  <strong>🍪 Cookie Consent:</strong> Essential cookies always on; analytics/ads optional.
+  <strong>🍪 Cookie Notice:</strong> We use cookies to improve browsing experience & site features.<br>
   <div class="cookie-btns">
-    <button class="btn-accept" onclick="acceptCookies()">Accept All</button>
-    <button class="btn-reject" onclick="rejectCookies()">Reject Extra</button>
+    <button class="btn-accept" onclick="closeCookie()">Accept</button>
+    <button class="btn-reject" onclick="closeCookie()">Reject Non‑Essential</button>
   </div>
 </div>
 
-<footer>© <span id="year"></span> Hyperinversion LTD • LONDON UK • Bringing your world to you</footer>
+<footer>© <span id="year"></span> Hyperinversion LTD • LONDON UK</footer>
 
 <script>
-// ✅ SUPER RELIABLE TAB SWITCH — NO STUCK, NO TIMING FAILS
+// Global so the inline onclick="closeCookie()" handlers can find it
+function closeCookie(){document.getElementById('cookie').style.display='none';}
+
 document.addEventListener('DOMContentLoaded',function(){
   const tabLinks=document.querySelectorAll('.tab-link');
   const allPages=document.querySelectorAll('.page');
 
   tabLinks.forEach(link=>{
-    link.addEventListener('click',function(){
-      tabLinks.forEach(l=>l.classList.remove('active'));
+    function activateTab(){
+      tabLinks.forEach(l=>{l.classList.remove('active');l.setAttribute('aria-selected','false');});
       allPages.forEach(p=>p.classList.remove('active'));
-      this.classList.add('active');
-      const tabId=this.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
-    });
-    // Mobile touch fix
-    link.addEventListener('touchend',e=>{e.preventDefault();this.click();},{passive:false});
+      link.classList.add('active');
+      link.setAttribute('aria-selected','true');
+      link.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+      document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+    }
+    link.addEventListener('click',activateTab);
+    link.addEventListener('touchend',function(e){e.preventDefault();activateTab();},{passive:false});
   });
 
-  // Live Clock
+  // LIVE LONDON CLOCK
   function setTime(){
     const d=new Date();
-    document.getElementById('live-time').textContent="📍 LONDON • "+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+" | "+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    document.getElementById('live-time').textContent="📍 London • "+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+" | "+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   }
-  setInterval(setTime,1000);setTime();document.getElementById('year').textContent=new Date().getFullYear();
+  setInterval(setTime,1000);setTime();
+  document.getElementById('year').textContent=new Date().getFullYear();
 
-  // ✅ COOKIE REMEMBER SETTINGS
-  function hideCookie(){document.getElementById('cookie').style.display='none';}
-  function acceptCookies(){localStorage.setItem("WowBiteCookie","Accept");hideCookie();}
-  function rejectCookies(){localStorage.setItem("WowBiteCookie","Essential");hideCookie();}
-  if(localStorage.getItem("WowBiteCookie")) hideCookie();
+  // ROTATING FACT LIST
+  const facts=[
+    "📍 Greater London has around 9 million residents and is a major global finance and research hub.",
+    "🤖 Alan Turing's 1950 paper introduced the Turing Test, a founding idea in AI research.",
+    "🧠 Every AI in everyday use today is 'narrow AI' — built for one task, not general reasoning.",
+    "🌉 The River Thames runs about 346km from Gloucestershire to the North Sea.",
+    "🍯 Properly sealed honey doesn't spoil — edible honey has been found in ancient Egyptian tombs.",
+    "⚡ Light travels about 299,792 km per second in a vacuum.",
+    "🐙 An octopus has three hearts and blue, copper-based blood.",
+    "⛰️ Mount Everest grows roughly 4mm most years due to tectonic uplift."
+  ];
+  function rotateFact(){
+    const el=document.getElementById('daily-fact');
+    if(el) el.innerHTML="<strong>Rotating fact:</strong> "+facts[Math.floor(Math.random()*facts.length)];
+  }
+  rotateFact();setInterval(rotateFact,180000);
 
-  // Rotating Facts
-  const facts=["🤖 Alan Turing = AI pioneer","🌉 Thames = London’s 346km river","🐙 Octopus has 3 hearts!","🏛️ Imperial College leads AI safety"];
-  function rotate(){const el=document.getElementById('daily-fact');if(el)el.textContent="💡 Daily Fact: "+facts[Math.floor(Math.random()*facts.length)];}
-  rotate();setInterval(rotate,180000);
+  // BACK TO TOP BUTTON
+  const topBtn=document.getElementById('top-btn');
+  window.addEventListener('scroll',()=>{
+    topBtn.classList.toggle('show',window.scrollY>400);
+  });
+  topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 });
 </script>
 </body>
