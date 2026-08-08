@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- Stop browser loading old cached version -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>WowBite | Hyperinversion LTD</title>
-<meta name="description" content="WowBite – Daily Manchester & UK news, trending gossip, unsolved mysteries, conspiracies & community hub. GDPR compliant, mobile-optimised, Google AdSense ready.">
+<meta name="description" content="WowBite – Daily Manchester & UK news, trending gossip, unsolved mysteries, conspiracies & community hub. GDPR compliant, mobile friendly.">
 <meta name="robots" content="index, follow">
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;-webkit-tap-highlight-color:transparent;}
+* {margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 :root {--gold:#ffcc00;--darkgold:#b8860b;--dark:#0f0f1a;--mid:#1a1a2e;--light:#f0f0f5;--red:#e63946;}
 
 body {
   background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.78)), 
-  url('https://images.unsplash.com/photo-1514565137-f3199225321b?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;
+  url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1470&q=90') center/cover no-repeat fixed;
   color:var(--light);line-height:1.55;min-height:100vh;
 }
 
@@ -21,15 +25,15 @@ header {background:rgba(0,0,0,0.88);padding:1.1rem;text-align:center;border-bott
 h1 {color:var(--gold);font-size:1.8rem;margin-bottom:0.3rem;}
 .time-display {font-size:0.95rem;color:#ddd;font-weight:500;}
 
-/* --- TABS / NAV - FIXED FOR SAMSUNG --- */
+/* --- TABS / NAV - FIXED TYPO + SAMSUNG TOUCH --- */
 nav {background:rgba(20,20,35,0.92);position:sticky;top:0;z-index:999;}
 .tabs {display:flex;flex-wrap:wrap;justify-content:center;list-style:none;}
 .tabs li a {
-  display:block;padding:0.8rem 0.95rem;color:var(--light);text-decoration:none;font-size:0.92rem;font-weight::500;
+  display:block;padding:0.8rem 0.95rem;color:var(--light);text-decoration:none;font-size:0.92rem;font-weight:500;
   border-bottom:3px solid transparent;transition:all 0.2s ease;
 }
-.tabs li a.active, .tabs li a:hover, .tabs li a:active {
-  border-color:var(--gold);color:var(--gold);background:rgba(255,204,0,0.1);
+.tabs li a.active, .tabs li a:hover, .tabs li a:active, .tabs li a:focus {
+  border-color:var(--gold);color:var(--gold);background:rgba(255,204,0,0.1);outline:none;
 }
 
 /* --- PAGES / CONTENT --- */
@@ -41,9 +45,6 @@ main {max-width:1250px;margin:0 auto;padding:1.1rem;}
 .card {background:rgba(18,18,30,0.85);border-radius:10px;padding:1.2rem;margin:1rem 0;border-left:4px solid var(--red);}
 h2 {color:var(--gold);margin-bottom:0.9rem;font-size:1.35rem;}
 .update-note {font-size:0.85rem;color:#bbb;margin-top:0.5rem;}
-
-/* --- ADSENSE SLOTS --- */
-.ad-space {border:2px dashed #444;background:rgba(30,30,45,0.6);padding:1.4rem;margin:1.2rem 0;text-align:center;color:#aaa;border-radius:8px;font-size:0.9rem;}
 
 /* --- GDPR COOKIE BANNER --- */
 #cookie {
@@ -83,22 +84,20 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
   <section id="home" class="page active">
     <h2>🔥 Top Stories</h2>
     <div class="card" id="top-stories"></div>
-    <div class="ad-space">📢 GOOGLE ADSENSE SLOT 1 – PASTE YOUR AD CODE HERE</div>
   </section>
 
   <!-- NEWS -->
   <section id="news" class="page">
     <h2>📰 UK & Manchester Live News</h2>
     <div class="card">
-      <p>Latest updates from trusted sources: BBC, Sky, Manchester Evening News & more – auto‑refreshed daily.</p>
+      <p>Latest updates from trusted sources – auto‑refreshed daily.</p>
       <ul style="margin:0.8rem;padding-left:1.2rem;">
-        <li>🏛️ UK & North West political updates</li>
+        <li>🏛️ UK & North West updates</li>
         <li>🌤️ Manchester weather & local events</li>
-        <li>⚽ Man Utd, Man City & sports news</li>
-        <li>🚦 Traffic, travel & community alerts</li>
+        <li>⚽ Sports & team news</li>
+        <li>🚦 Local travel & community alerts</li>
       </ul>
     </div>
-    <div class="ad-space">📢 GOOGLE ADSENSE SLOT 2</div>
   </section>
 
   <!-- GOSSIP -->
@@ -127,7 +126,7 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
   <section id="community" class="page">
     <h2>💬 Community & Polls</h2>
     <div class="card">
-      <p>Share your thoughts, vote in daily polls & join discussions! Full forum coming soon.</p>
+      <p>Share your thoughts, vote in daily polls & join discussions!</p>
     </div>
   </section>
 
@@ -135,10 +134,9 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
   <section id="legal" class="page">
     <h2>⚖️ Privacy & Legal</h2>
     <div class="card">
-      <p>✅ GDPR & ePrivacy compliant</p>
-      <p>✅ We use cookies to improve your experience & support ads</p>
-      <p>✅ No personal data stored without permission</p>
-      <p>✅ Full Privacy Policy available on request</p>
+      <p>✅ GDPR compliant</p>
+      <p>✅ Cookies improve browsing experience</p>
+      <p>✅ Respects visitor privacy</p>
     </div>
   </section>
 
@@ -147,15 +145,15 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
     <h2>ℹ️ About WowBite</h2>
     <div class="card">
       <p><strong>WowBite</strong> is owned & operated by <strong>Hyperinversion LTD</strong>.</p>
-      <p>We deliver engaging daily content designed to build a loyal audience – fully monetizable, mobile‑first & legally compliant for UK/EU visitors.</p>
+      <p>Bringing fresh, engaging daily content to keep you informed and entertained!</p>
     </div>
   </section>
 </main>
 
 <div id="cookie">
-  <strong>🍪 Cookie Notice (EU/GDPR):</strong> We use cookies to improve your experience & support advertising. By continuing you agree, or manage your choice below.<br>
+  <strong>🍪 Cookie Notice:</strong> We use cookies to improve browsing experience. Continue or choose below.<br>
   <div class="cookie-btns">
-    <button class="btn-accept" onclick="closeCookie()">Accept All Cookies</button>
+    <button class="btn-accept" onclick="closeCookie()">Accept</button>
     <button class="btn-reject" onclick="closeCookie()">Reject Non‑Essential</button>
   </div>
 </div>
@@ -165,18 +163,20 @@ footer {text-align:center;padding:1.3rem;color:#aaa;font-size:0.85rem;border-top
 </footer>
 
 <script>
-// --- 1. WORKING TABS (FIXED SAMSUNG TOUCH/CLICK) ---
+// --- SUPER RELIABLE TABS (CLICK + TOUCH FOR SAMSUNG) ---
+function switchTab(href){
+  document.querySelectorAll('.tab-link').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.querySelector(href).classList.add('active');
+  event.preventDefault();
+}
 document.querySelectorAll('.tab-link').forEach(tab => {
-  tab.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelectorAll('.tab-link').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelector(tab.getAttribute('href')).classList.add('active');
-  });
+  tab.addEventListener('click', e => switchTab(tab.getAttribute('href')));
+  tab.addEventListener('touchend', e => {switchTab(tab.getAttribute('href'));e.preventDefault();},{passive:false});
 });
 
-// --- 2. LIVE DATE/TIME (UK FORMAT) ---
+// --- LIVE DATE/TIME (UK FORMAT) ---
 function setTime(){
   const now = new Date();
   document.getElementById('live-time').textContent = 
@@ -186,10 +186,10 @@ function setTime(){
 setInterval(setTime,1000); setTime();
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// --- 3. COOKIE BANNER ---
+// --- COOKIE BANNER ---
 function closeCookie(){document.getElementById('cookie').style.display='none';}
 
-// --- 4. AUTO-UPDATING CONTENT ---
+// --- AUTO-UPDATING CONTENT ---
 const stories = [
   "🔥 Manchester United secures vital win",
   "⚽ City eye new signing in transfer update",
@@ -206,11 +206,11 @@ const facts = [
 ];
 
 function rotateContent(){
-  document.getElementById('top-stories').innerHTML = `<strong>${stories[Math.floor(Math.random()*stories.length)]}</strong><br><span class="update-note">Auto-updated just now</span>`;
+  document.getElementById('top-stories').innerHTML = `<strong>${stories[Math.floor(Math.random()*stories.length)]}</strong><br><span class="update-note">Updated just now</span>`;
   document.getElementById('daily-fact').innerHTML = `<strong>${facts[Math.floor(Math.random()*facts.length)]}</strong>`;
 }
 rotateContent();
-setInterval(rotateContent, 180000); // Updates every 3 mins
+setInterval(rotateContent, 180000);
 
 </script>
 </body>
